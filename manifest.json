@@ -1,0 +1,19 @@
+{
+    "name": "FuPanda_Extension",
+    "description": "輔助JCB訂餐插件",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [{
+        "matches" : ["<all_urls>"],
+        "js" : ["script.js"]
+    }] ,
+    "icons":{
+        "16":"/images/check.png",
+        "48":"/images/check.png",
+        "128":"/images/check.png"
+    },
+    "permissions": ["activeTab"] ,
+    "action":{
+        "default_popup":"test.html"
+    }
+  }
