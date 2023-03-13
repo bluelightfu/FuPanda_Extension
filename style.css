@@ -1,25 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&family=Roboto:wght@500&display=swap');
 body{
-	width: 250px;
+	width: 300px;
 	background-color: #343A40;
+	padding: 18px;
 }
 
 p {
 	font-family: 'Noto Sons TC', sans-serif;
+	color: white;
+}
+
+input[type=text]{
+	padding: 12px 20px;
+	background-color: #343A40;
+	color: white;
+	border: 1px #999a9b solid;
+	border-radius: 8px;
+	font-size: 16px;
+}
+
+.row{
+	margin: 16px 0;
+}
+
+.input-panel{
+	margin-top: 8px;
+}
+
+.input-card-panel{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.cardno {
+    background-color: #FFF;
+    font-size: 18px;
+	letter-spacing: 6px;
+}
+
+.cardno6 {
+    width: 84px;
+    margin-right:16px;
+	text-align: center;
+}
+
+.cardno4 {
+    width: 56px;
+    margin-right: 0;
+	text-align: center;
+}
+
+.input-text{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.title{
+	font-family: 'Roboto', sans-serif;
 }
 
 .ver{
 	font-size: 6px;
 	text-align: right;
-	padding: 4px 8px;
 	color: #999a9b;
+	font-family: 'Roboto', sans-serif;
+	margin-top: 18px;
 }
 
-.title{
+.tool-title{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 8px;
 	font-family: 'Roboto', sans-serif;
-	color: white;
+	margin-bottom: 16px;
+	font-size: 22px;
 }
