@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style_init.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body style="width: 300px; background-color: #343A40; padding: 18px;">
+    <div>
+        <p style="font-size: 28px;">JCB自動填寫</p>
+        <div class="col-12 mt-2 mb-2">
+            <p class="form-label">選擇使用者</p>
+            <select id="user" class="form-select" aria-label="使用者" style="background-color: #F4C095;">
+                <option selected>選擇使用者...</option>
+            </select>
+        </div>
+        <div class="col-12 mb-4">
+            <p class="form-label">選擇日期</p>
+            <select id="date" class="form-select" aria-label="日期" style="background-color: #FCBF49">
+                <option value="1" selected>星期一</option>
+                <option value="2">星期二</option>
+                <option value="3">星期三</option>
+                <option value="4">星期四</option>
+                <option value="5">星期五</option>
+                </select>
+        </div>
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div class="row">
+                <div class="col-12">
+                    <label for="name" class="form-label">名字</label>
+                    <input id="name" type="text" class="form-control" placeholder="輸入名字..">
+                </div>
+                <div class="col-12 mt-2">
+                    <label for="phone" class="form-label">電話</label>
+                    <input id="phone" type="text" class="form-control" placeholder="輸入電話..">
+                </div>
+                <div class="col-12 mt-2">
+                    <label for="card" class="form-label">信用卡</label>
+                    <input id="card" type="text" class="form-control" placeholder="輸入信用卡號..">
+                </div>
+                <div class="col-12 mt-2">
+                    <label for="email" class="form-label">信箱</label>
+                    <input id="email" type="text" class="form-control" placeholder="輸入信箱..">
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button id="save" type="button" class="btn btn-warning">儲存</button>
+                    </div>
+                </div>
+                <div class="col-12 mt-4">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <p>版本號: 0.1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="popup.js"></script>
+</html>

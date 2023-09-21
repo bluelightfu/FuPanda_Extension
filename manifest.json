@@ -4,7 +4,7 @@
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [{
-        "matches" : ["*://*.taodining.com.tw/*"],
+        "matches" : ["https://www.taodining.com.tw/*"],
         "js" : ["script.js"]
     }] ,
     "icons":{
@@ -12,8 +12,12 @@
         "48":"/images/check.png",
         "128":"/images/check.png"
     },
-    "permissions": ["activeTab"] ,
+    "permissions": ["activeTab","storage"] ,
     "action":{
-        "default_popup":"jcb.html"
+        "default_popup":"popup/jcb.html"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
     }
 }
