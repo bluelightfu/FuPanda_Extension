@@ -40,3 +40,7 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
         email_el.value = email
     }
 })
+
+$( function() {
+    $( "#date" ).datepicker();
+} );
