@@ -46,9 +46,9 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
     }
 
     try{
-        const day = new Date(date).getDay();
+        // const day = new Date(date).getDay();
         /* day => 0:請選擇日期 1:星期一 2:星期二 3:星期三 4:星期四 5:星期五 */
-        document.getElementById("ord_date").options[day].selected=true
+        document.getElementById("ord_date").options[date].selected=true
     } catch(e) {
         var error = "選擇日期出現了問題"
         console.log(error)
