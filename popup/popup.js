@@ -22,6 +22,17 @@ save.onclick = function(){
     chrome.runtime.sendMessage({ event: 'onSave', user_data })
 }
 
+const toggleCard = document.querySelector('#toggleCard');
+const card = document.querySelector('#card');
+
+toggleCard.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = card.getAttribute('type') === 'text' ? 'password' : 'text';
+    card.setAttribute('type', type);
+    this.innerHTML = this.innerHTML === '顯示卡號' ? '隱藏卡號' : '顯示卡號'
+});
+
+//Get Saved Data
 chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
     const { date, name, phone, card, email } = result;
     if(date){
@@ -41,6 +52,7 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
     }
 })
 
+//Calendar init
 $( function() {
     $( "#date" ).datepicker();
 } );

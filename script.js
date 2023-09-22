@@ -51,7 +51,7 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
         document.getElementById("ord_date").options[day].selected=true
     } catch(e) {
         var error = "選擇日期出現了問題"
-        console.error(error)
+        console.log(error)
         document.getElementById("ord_date").options[1].selected=true
     }
 })
