@@ -20,6 +20,7 @@ save.onclick = function(){
         email: email_el.value
     }
     chrome.runtime.sendMessage({ event: 'onSave', user_data })
+    alert('儲存成功')
 }
 
 const toggleCard = document.querySelector('#toggleCard');
