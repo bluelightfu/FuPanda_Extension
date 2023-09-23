@@ -11,8 +11,8 @@ function displayResult() {
 }
 
 
-chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
-    const { date, name, phone, card, email } = result;
+chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (result)=>{
+    const { date, name, phone, card, email, auto } = result;
     //同意
     if(document.getElementById("CheckboxGroup1_0")){
         document.getElementById("CheckboxGroup1_0").click();
@@ -44,7 +44,6 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
             document.getElementById("captcha_form").value = captcha;
         }
     }
-
     try{
         // const day = new Date(date).getDay();
         /* day => 0:請選擇日期 1:星期一 2:星期二 3:星期三 4:星期四 5:星期五 */
@@ -53,5 +52,19 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
         var error = "選擇日期出現了問題"
         console.log(error)
         document.getElementById("ord_date").options[1].selected=true
+    } finally {
+        //確認是否開啟auto模式
+        if (auto){
+            //星巴克
+            if (document.getElementsByClassName('btn btn-primary').length >= 2){
+                document.getElementsByClassName('btn btn-primary')[1].click(); //JCB他們網頁送出的函式庫
+            }
+            //下午茶
+            if (document.querySelectorAll("button[type=submit]").length > 0){
+                document.querySelectorAll("button[type=submit]")[0].click();
+            }
+        }
     }
+
+
 })

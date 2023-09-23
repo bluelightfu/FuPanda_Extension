@@ -8,6 +8,9 @@ const phone_el = document.getElementById('phone')
 const card_el = document.getElementById('card')
 const email_el = document.getElementById('email')
 
+//CHECK BOXES
+const check_el = document.getElementById('auto')
+
 //BUTTONS
 const save = document.getElementById('save')
 
@@ -17,7 +20,8 @@ save.onclick = function(){
         name: name_el.value,
         phone: phone_el.value,
         card: card_el.value,
-        email: email_el.value
+        email: email_el.value,
+        auto: check_el.checked
     }
     chrome.runtime.sendMessage({ event: 'onSave', user_data })
     alert('儲存成功')
@@ -34,8 +38,8 @@ toggleCard.addEventListener('click', function (e) {
 });
 
 //Get Saved Data
-chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
-    const { date, name, phone, card, email } = result;
+chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (result)=>{
+    const { date, name, phone, card, email, auto } = result;
     if(date){
         date_el.value = date
     }
@@ -50,6 +54,9 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email"], (result)=>{
     }
     if(email){
         email_el.value = email
+    }
+    if(auto){
+        check_el.checked = auto
     }
 })
 

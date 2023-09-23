@@ -7,7 +7,8 @@ const data = {
         name: name_el.value,
         phone: phone_el.value,
         card: card_el.value,
-        email: email_el.value
+        email: email_el.value,
+        auto: auto_el.checked
     }
 }
 
