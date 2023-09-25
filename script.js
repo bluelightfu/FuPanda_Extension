@@ -65,7 +65,7 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
             }
             //下午茶
             if (document.querySelectorAll("button[type=submit]").length > 0){
-                document.querySelectorAll("button[type=submit]")[0].click();
+                document.querySelector("#form1 > div > div:nth-child(4) > div > div.visible-xs > button > img").click();
             }
         }
     }
