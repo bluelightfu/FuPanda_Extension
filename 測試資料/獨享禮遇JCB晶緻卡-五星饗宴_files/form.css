@@ -1,0 +1,58 @@
+table td{
+    font-size: 15px;
+    padding: 0 10px;
+    border: solid 1px #27576b;
+    font-weight: 400;
+
+}
+table .form-title{
+    padding: 10px;
+    width: 160px;
+    background-color: #fefff1;
+    border-right: none;
+}
+table .form-field{
+    padding: 10px 15px;
+    /*border-left: none;*/
+}
+table .form-field div{
+    padding-left: 15px;
+}
+
+form input, form textarea, form select {
+    border-radius: 0;
+    width: 240px;
+    padding: 6px;
+    border: 1px solid #e0e0e0;
+    background: #f3f4f5;
+}
+.show-in-xs{
+    display: none;
+}
+.show-in-md{
+    display: block;
+}
+.show-in-lg{
+    display: block;
+}
+
+@media (max-width: 991px) {
+    table .form-title {
+        display: none;
+    }
+    /*table .form-field{*/
+    /*    border-left: solid 1px black;*/
+    /*}*/
+    .show-in-xs{
+        display: block;
+    }
+    .show-in-md{
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .show-in-lg{
+        display: none;
+    }
+}

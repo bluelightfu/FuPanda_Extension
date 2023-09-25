@@ -55,9 +55,13 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     } finally {
         //確認是否開啟auto模式
         if (auto){
-            //星巴克
+            //處理 1. 星巴克登陸頁面  2. 星巴克(隱私權條款)
             if (document.getElementsByClassName('btn btn-primary').length >= 2){
-                document.getElementsByClassName('btn btn-primary')[1].click(); //JCB他們網頁送出的函式庫
+                document.getElementsByClassName('btn btn-primary')[1].click(); //送出按鈕
+            }
+            //下午茶(隱私條款)
+            if (document.querySelectorAll("button").length > 0){
+                document.querySelector("#form1 > div.visible-xs > a:nth-child(2)").click()//button最後一個按鈕:送出
             }
             //下午茶
             if (document.querySelectorAll("button[type=submit]").length > 0){
