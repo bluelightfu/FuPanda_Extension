@@ -1,7 +1,7 @@
 {
     "name": "FuPanda_Extension",
     "description": "輔助JCB訂餐插件",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "manifest_version": 3,
     "content_scripts": [{
         "matches" : ["https://www.taodining.com.tw/*", "file:///*"],

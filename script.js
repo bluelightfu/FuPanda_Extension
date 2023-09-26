@@ -51,16 +51,18 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     } catch(e) {
         var error = "選擇日期出現了問題"
         console.log(error)
-        document.getElementById("ord_date").options[1].selected=true
+        if(document.getElementById("ord_date")){
+            document.getElementById("ord_date").options[1].selected=true
+        }
     } finally {
         //確認是否開啟auto模式
         if (auto){
             //處理 1. 星巴克登陸頁面  2. 星巴克(隱私權條款)
-            if (document.getElementsByClassName('btn btn-primary').length >= 2){
-                document.getElementsByClassName('btn btn-primary')[1].click(); //送出按鈕
+            if (document.querySelector("#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button")){
+                document.querySelector("#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button").click(); //送出按鈕
             }
             //下午茶(隱私條款)
-            if (document.querySelectorAll("button").length > 0){
+            if (document.querySelector("#form1 > div.visible-xs > a:nth-child(2)")){
                 document.querySelector("#form1 > div.visible-xs > a:nth-child(2)").click()//button最後一個按鈕:送出
             }
             //下午茶
