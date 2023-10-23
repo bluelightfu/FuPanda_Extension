@@ -14,9 +14,9 @@
     <div>
         <p style="font-size: 28px; color: #04BF9D;">JCB自動填寫</p>
         <div class="col-12 mt-2 mb-2">
-            <p class="form-label">選擇使用者</p>
-            <select id="user" class="form-select" aria-label="使用者" style="background-color: #D2E8E3;">
-                <option selected>選擇使用者...</option>
+            <p class="form-label">選擇卡片</p>
+            <select id="user" class="form-select" aria-label="卡片" style="background-color: #D2E8E3;">
+                <option selected>選擇卡片...</option>
             </select>
         </div>
         <div class="col-12 mb-4">
@@ -33,6 +33,10 @@
         <div class="d-flex justify-content-center align-items-center flex-column">
             <div class="row">
                 <div class="col-12">
+                    <label for="card_name" class="form-label">卡片名稱</label>
+                    <input id="card_name" type="text" class="form-control" placeholder="輸入卡片名稱..">
+                </div>
+                <div class="col-12 mt-2">
                     <label for="name" class="form-label">名字</label>
                     <input id="name" type="text" class="form-control" placeholder="輸入名字..">
                 </div>
@@ -60,12 +64,13 @@
                 </div>
                 <div class="col-12 mt-4">
                     <div class="d-flex justify-content-center align-items-center">
-                        <button id="save" type="button" class="btn" style="background-color: #D8B08C;">儲存</button>
+                        <button id="save" type="button" class="btn" style="background-color: #D8B08C;">儲存狀態</button>
+                        <button id="add" type="button" class="btn" style="background-color: #D8B08C; margin-left: 16px;">加入卡片</button>
                     </div>
                 </div>
                 <div class="col-12 mt-4">
                     <div class="d-flex justify-content-center align-items-center">
-                        <p>版本號: 0.3.3</p>
+                        <p>版本號: 0.3.4</p>
                     </div>
                 </div>
             </div>

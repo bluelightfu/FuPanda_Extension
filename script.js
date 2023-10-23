@@ -58,8 +58,8 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
         //確認是否開啟auto模式
         if (auto){
             //處理 1. 星巴克登陸頁面  2. 星巴克(隱私權條款)
-            if (document.querySelector("#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button")){
-                document.querySelector("#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button").click(); //送出按鈕
+            if (document.querySelector("#form1 > div > a:nth-child(2)")){
+                document.querySelector("#form1 > div > a:nth-child(2)").click(); //送出按鈕
             }
             //下午茶(隱私條款)
             if (document.querySelector("#form1 > div.visible-xs > a:nth-child(2)")){
