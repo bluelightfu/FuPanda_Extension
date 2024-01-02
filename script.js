@@ -19,10 +19,12 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     }
     //信用卡號
     if(document.getElementById("card1")){
+        document.getElementById("card1").focus()
         document.getElementById("card1").value = card;
     }
     //Email
     if(document.getElementById("user_email")){
+        document.getElementById("user_email").focus()
         document.getElementById("user_email").value = email;
     }
     //輸入驗證碼
@@ -65,11 +67,5 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
             }
         }
     }
-    //插入script
-    var actualCode = 'chk_cardinfo();';
-    var script = document.createElement('script');
-    script.textContent = actualCode;
-    (document.head||document.documentElement).appendChild(script);
-    script.remove();
 
 })
