@@ -59,8 +59,3 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
         check_el.checked = auto
     }
 })
-
-//Calendar init
-$( function() {
-    $( "#date" ).datepicker();
-} );

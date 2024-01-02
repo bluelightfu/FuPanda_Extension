@@ -1,15 +1,3 @@
-function displayResult() {
-    var x = document.getElementById("ord_date");
-    var txt = "目前可選日期: ";
-    var i;
-    for (i = 1; i < x.length; i++) {
-        dateMsg = dateMsg + "\n" + x.options[i].text;
-    }
-    console.log(dateMsg)
-    var newDateMsg = "目前幫你暫選: "+x.option[1]
-    console.error(newDateMsg)
-}
-
 
 chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (result)=>{
     const { date, name, phone, card, email, auto } = result;
@@ -46,14 +34,12 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     }
     try{
         // const day = new Date(date).getDay();
-        /* day => 0:請選擇日期 1:星期一 2:星期二 3:星期三 4:星期四 5:星期五 */
-        document.getElementById("ord_date").options[date].selected=true
+        /* day => 0:星期一 1:星期二 2:星期三 3:星期四 4:星期五 */
+        document.getElementsByName('ord_date')[date].checked = true
     } catch(e) {
         var error = "選擇日期出現了問題"
         console.log(error)
-        if(document.getElementById("ord_date")){
-            document.getElementById("ord_date").options[1].selected=true
-        }
+        document.getElementsByName('ord_date')[0].checked = true
     } finally {
         //確認是否開啟auto模式
         if (auto){
@@ -71,6 +57,11 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
             }
         }
     }
-
+    //插入script
+    var actualCode = 'chk_cardinfo();';
+    var script = document.createElement('script');
+    script.textContent = actualCode;
+    (document.head||document.documentElement).appendChild(script);
+    script.remove();
 
 })
