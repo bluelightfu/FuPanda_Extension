@@ -44,13 +44,21 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
         //確認是否開啟auto模式
         if (auto){
             //處理 1. 星巴克登陸頁面  2. 星巴克(隱私權條款)
-            if (document.querySelector("#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button")){
-                document.querySelector("#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button").click(); //送出按鈕
+            if (document.querySelectorAll('a[onclick="return isChkbox();"]').length > 0){
+                document.querySelectorAll('a[onclick="return isChkbox();"]')[0].click(); //送出按鈕
+            }
+            if (document.querySelectorAll('button[onclick="shouldConfirm =false;return chk_value();"]').length > 0){
+                document.querySelectorAll('button[onclick="shouldConfirm =false;return chk_value();"]')[0].click(); //送出按鈕
             }
             //下午茶(隱私條款)
             if (document.querySelector("#form1 > div.visible-xs > a:nth-child(2)")){
                 document.querySelector("#form1 > div.visible-xs > a:nth-child(2)").click()//button最後一個按鈕:送出
             }
+
+            // if (document.querySelectorAll("input[type=checkbox]").length > 0){
+            //     document.querySelectorAll("input[type=checkbox]")[document.querySelectorAll("input[type=checkbox]").length-1].click()
+            // }
+            
             //下午茶
             if (document.querySelectorAll("button[type=submit]").length > 0){
                 document.querySelector("#form1 > div > div:nth-child(4) > div > div.visible-xs > button > img").click();

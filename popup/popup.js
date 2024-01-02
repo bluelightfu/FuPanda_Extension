@@ -34,7 +34,7 @@ toggleCard.addEventListener('click', function (e) {
     // toggle the type attribute
     const type = card.getAttribute('type') === 'text' ? 'password' : 'text';
     card.setAttribute('type', type);
-    this.innerHTML = this.innerHTML === '顯示卡號' ? '隱藏卡號' : '顯示卡號'
+    this.textContent = this.textContent === '顯示卡號' ? '隱藏卡號' : '顯示卡號'
 });
 
 //Get Saved Data
