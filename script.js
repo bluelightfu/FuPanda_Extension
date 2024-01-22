@@ -1,4 +1,13 @@
 
+function injectScript(file_path, tag) {
+    var node = document.getElementsByTagName(tag)[0];
+    var script = document.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', file_path);
+    node.appendChild(script);
+}
+injectScript(chrome.runtime.getURL('content.js'), 'body');
+
 chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (result)=>{
     const { date, name, phone, card, email, auto } = result;
     //同意
@@ -63,10 +72,10 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
             
             //下午茶
             if (document.querySelectorAll("button[type=submit]").length > 0){
-                
-                setInterval(function(){
+                let order = function(){
                     document.querySelector("#form1 > div > div:nth-child(4) > div > div.visible-xs > button > img").click();
-                },800);
+                }
+                setTimeout(order, 800)
             }
         }
     }

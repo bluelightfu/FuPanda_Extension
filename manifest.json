@@ -6,7 +6,13 @@
     "content_scripts": [{
         "matches" : ["https://www.taodining.com.tw/*", "file:///*"],
         "js" : ["script.js"]
-    }] ,
+    }],
+    "web_accessible_resources": [
+        {
+            "resources":["content.js"],
+            "matches" : ["https://www.taodining.com.tw/*", "file:///*"]
+        }
+    ],
     "icons":{
         "16":"/images/JCB.png",
         "48":"/images/JCB.png",
