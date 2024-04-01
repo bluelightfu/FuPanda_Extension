@@ -1,3 +1,4 @@
+import fetchGemini from "./api/fetchGemini.js";
 /* [Received Data]
 
 const data = {
@@ -14,6 +15,7 @@ const data = {
 
 */
 
+
 //message listener
 chrome.runtime.onMessage.addListener(data => {
     const { event , user_data } = data
@@ -28,9 +30,13 @@ chrome.runtime.onMessage.addListener(data => {
             break;
     }
 })
-
 const handleOnSave = (user_data) => {
     console.log('OnSave');
     console.log(user_data)
     chrome.storage.local.set(user_data)
 }
+chrome.runtime.onInstalled.addListener(res =>{
+    fetchGemini()
+})
+
+
