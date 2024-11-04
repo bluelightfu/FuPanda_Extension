@@ -4,13 +4,13 @@
     "version": "0.3.5",
     "manifest_version": 3,
     "content_scripts": [{
-        "matches" : ["https://www.taodining.com.tw/*", "file:///*"],
+        "matches" : ["https://www.taodining.com.tw/*", "file:///*","https://www.yunliedining.com.tw/*"],
         "js" : ["script.js"]
     }],
     "web_accessible_resources": [
         {
             "resources":["content.js"],
-            "matches" : ["https://www.taodining.com.tw/*", "file:///*"]
+            "matches" : ["https://www.taodining.com.tw/*", "file:///*","https://www.yunliedining.com.tw/*"]
         }
     ],
     "icons":{
@@ -25,5 +25,6 @@
     "background": {
         "service_worker": "background.js",
         "type": "module"
-    }
+    },
+    "host_permissions": ["http://localhost:5000/*"]
 }

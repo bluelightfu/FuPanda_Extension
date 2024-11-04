@@ -19,7 +19,6 @@ chrome.runtime.onMessage.addListener(data => {
     const { event , user_data } = data
     switch(event){
         case 'onStop':
-            console.log('OnStop');
             break;
         case 'onSave':
             handleOnSave(user_data)

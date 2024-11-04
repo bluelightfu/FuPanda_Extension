@@ -14,6 +14,10 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     if(document.getElementById("CheckboxGroup1_0")){
         document.getElementById("CheckboxGroup1_0").click();
     }
+    //同意(JCB晚餐)
+    if(document.getElementById("accept_check")){
+        document.getElementById("accept_check").checked = true;
+    }
     //如何得知
     if(document.getElementById("how2know1")){
         document.getElementById("how2know1").click();
@@ -47,10 +51,13 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
         // const day = new Date(date).getDay();
         /* day => 0:星期一 1:星期二 2:星期三 3:星期四 4:星期五 */
         document.getElementsByName('ord_date')[date].checked = true
+        //晚餐
+        document.getElementsById('order_date').selectedIndex = date + 1 ;
     } catch(e) {
         var error = "選擇日期出現了問題"
         console.log(error)
         document.getElementsByName('ord_date')[0].checked = true
+        document.getElementsById('order_date').selectedIndex = 1 ;
     } finally {
         //確認是否開啟auto模式
         if (auto){
@@ -65,17 +72,16 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
             if (document.querySelector("#form1 > div.visible-xs > a:nth-child(2)")){
                 document.querySelector("#form1 > div.visible-xs > a:nth-child(2)").click()//button最後一個按鈕:送出
             }
-
-            // if (document.querySelectorAll("input[type=checkbox]").length > 0){
-            //     document.querySelectorAll("input[type=checkbox]")[document.querySelectorAll("input[type=checkbox]").length-1].click()
-            // }
-            
             //下午茶
             if (document.querySelectorAll("button[type=submit]").length > 0){
                 let order = function(){
                     document.querySelector("#form1 > div > div:nth-child(4) > div > div.visible-xs > button > img").click();
                 }
                 setTimeout(order, 800)
+            }
+            //晚餐(隱私權/訂位)
+            if(document.querySelector('.share_bt1')){
+                document.querySelector('.share_bt1').click();
             }
         }
     }

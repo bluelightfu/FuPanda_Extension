@@ -13,6 +13,7 @@ const check_el = document.getElementById('auto')
 
 //BUTTONS
 const save = document.getElementById('save')
+const add = document.getElementById('add')
 
 save.onclick = function(){
     const user_data = {
@@ -25,6 +26,18 @@ save.onclick = function(){
     }
     chrome.runtime.sendMessage({ event: 'onSave', user_data })
     alert('儲存成功')
+}
+
+add.onclick = function(){
+    const user_data = {
+        date: date_el.value,
+        name: name_el.value,
+        phone: phone_el.value,
+        card: card_el.value,
+        email: email_el.value,
+        auto: check_el.checked
+    }
+    chrome.runtime.sendMessage({ event: 'onStop', user_data })
 }
 
 const toggleCard = document.querySelector('#toggleCard');
