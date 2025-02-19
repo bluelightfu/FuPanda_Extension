@@ -8,6 +8,7 @@ function injectScript(file_path, tag) {
 }
 injectScript(chrome.runtime.getURL('content.js'), 'body');
 
+//如何得知 全打勾
 function check_all_checkbox(){
     // Select all checkboxes in the document
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -18,15 +19,23 @@ function check_all_checkbox(){
     });
 }
 
+//選填日期
 function check_date(date){
     // Select all checkboxes in the document
     const radio_btns = document.querySelectorAll('input[type="radio"]');
     const radio_btnsArray = Array.from(radio_btns);
-    console.log(radio_btnsArray)
     try{
         radio_btnsArray[date].checked = true;
     }catch(e){
         radio_btnsArray[0].checked = true;
+    }
+}
+
+function check_if_robot_check_done(){
+    while(true){
+        if (window.check_card_result){
+            break;
+        }
     }
 }
 
@@ -38,25 +47,29 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     }
     //如何得知
     check_all_checkbox();
-    //姓名
-    var user_name=document.getElementById('a8af1464f0262a436b5a069615e37b9a7');
-    user_name.value = name;
-    //電話
-    var user_phone=document.getElementById('a4ff9e4294fd4c73ed26384c671eb479a')
-    user_phone.value = phone;
-    //信用卡號
-    var card1 = document.getElementById('a1ed44b754af23e66966c3cb59f5fb3d3')
-    card1.value = card;
-    //Email
-    var user_email = document.getElementById('ac0ad1c6d23d27c02f9ccf825d95a653c');
-    user_email.value = email;
-    //輸入驗證碼
-    // if (document.getElementById("checkCode")){
-    //     let captcha = document.getElementById("checkCode").innerHTML;
-    //     if (document.getElementById("captcha_form")){
-    //         document.getElementById("captcha_form").value = captcha;
-    //     }
-    // }
+    var input_text_list = document.querySelectorAll('input[type="text"]');
+    for (let i = 0; i < input_text_list.length; i++){
+        console.log(i == 0)
+        switch (Number(i)){
+            case 0:
+                input_text_list[i].value = name;
+                console.log(input_text_list[i].value)
+                break;
+            case 1:
+                input_text_list[i].value = phone;
+                break;
+            case 2:
+                input_text_list[i].value = card;
+                input_text_list[i].click();
+                break;
+            case 3:
+                input_text_list[i].value = email;
+                break;
+            default:
+                break;
+        }
+        
+    }
     try{
         // const day = new Date(date).getDay();
         /* day => 0:星期一 1:星期二 2:星期三 3:星期四 4:星期五 */
@@ -67,41 +80,9 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
     } finally {
         //確認是否開啟auto模式
         if (auto){
-            //處理 1. 星巴克登陸頁面  2. 星巴克(隱私權條款)
-            // if (document.querySelectorAll('a[onclick="return isChkbox();"]').length > 0){
-            //     document.querySelectorAll('a[onclick="return isChkbox();"]')[0].click(); //送出按鈕
-            // }
-            // if (document.querySelectorAll('button[onclick="shouldConfirm =false;return chk_value();"]').length > 0){
-            //     document.querySelectorAll('button[onclick="shouldConfirm =false;return chk_value();"]')[0].click(); //送出按鈕
-            // }
-            // //下午茶(隱私條款)
-            // if (document.querySelector("#form1 > div.visible-xs > a:nth-child(2)")){
-            //     document.querySelector("#form1 > div.visible-xs > a:nth-child(2)").click()//button最後一個按鈕:送出
-            // }
-
-            // if (document.querySelectorAll("input[type=checkbox]").length > 0){
-            //     document.querySelectorAll("input[type=checkbox]")[document.querySelectorAll("input[type=checkbox]").length-1].click()
-            // }
-            
-            //下午茶
-            // Select the element using its attributes
-            const button = document.querySelector('input[onclick="chk_value();"]');
-
-            // Check if the button exists
-            if (button) {
-                // Trigger a click event
-                setTimeout(button.click(), 800)
-                console.log("Button clicked!");
-            } else {
-                console.error("Button not found!");
-            }
-            
-            // if (document.querySelectorAll("button[type=submit]").length > 0){
-            //     let order = function(){
-            //         document.querySelector("#form1 > div > div:nth-child(4) > div > div.visible-xs > button > img").click();
-            //     }
-            //     setTimeout(order, 800)
-            // }
+            setTimeout(() => {
+                document.querySelector('#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button').click();
+            }, 4200);
         }
     }
 
