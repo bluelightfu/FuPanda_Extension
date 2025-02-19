@@ -1,0 +1,1329 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{font-family:微軟正黑體;}
+body{margin:0;padding:0;background:#040000;    font-size: 14px;}
+table{border-collapse:collapse;border-spacing:0;}
+
+/**************手機版面。*****************/
+@media screen and (max-width:480px){
+/*提醒通知*/
+#news_w {width: 100%;height: 100%;position:fixed;background:rgba(0,0,0,0.8);z-index: 1;}
+.content_news {position: fixed;top: 50%;left: 50%;width: 275px;height: 250px;text-align: center;background:linear-gradient(-120deg,#F2E9C4,#E4D7B2);margin-left:-130px;margin-top:-180px;z-index: 1;border-radius: 10px;}
+.notice {width: 100%;height: 50px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-align: center;color: #40220F;font-size: 16px;font-weight: bold; line-height: 50px;letter-spacing: 3px;border-radius: 10px 10px 0 0;}
+.content_news p {padding:4px 10px;font-size: 12px;line-height: 24px;}
+.btn_close {width: 100px;height:35px;display:inline-block;text-align: center;line-height: 33px;font-size: 14px;font-weight: 300;color: white;background-color: #40220F;cursor: pointer;border-radius: 5px;}
+.btn_close:hover {background-color: #7F3C20;}
+
+#header_w{width:100%;padding-bottom:0px;background:url("../img/BG_header2023.png?2");background-size: 100% 100%;background-position:center;}
+/* #header_w{width:100%;height:40px;background:linear-gradient(-90deg,#190A04,#2A160B,#422513);} */
+#header{width:90%;height:auto;margin:0 auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;}
+.jcblogo img{width:30px;}
+.logo img{width:150px;}
+.subtitle img{width:180px;     margin: 10px auto;}
+/*菜單*/
+#nav{width:100%; margin: 0 auto;}
+.box{display: block; width: 100%; height: 40px; background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42)}
+.menu{width: 100%; height: 0 ; margin: 0 auto;display: 0; text-align: center; overflow: hidden ;background-color: #40220F;}
+.menu ul{margin: 0;padding: 0; list-style: none;}
+.menu li{padding: 15px;}
+.menu li:hover{background-color: #956134; transition: all ease-in-out 500ms;}
+.menu a{text-decoration: none; color:  white;}
+
+
+/* JS for site-nav toggleclass */  
+.menu--open {height: auto;}
+
+/* JS nav click buttom */
+.menu-toggle {width:15px;height:33px;position: absolute;top: 58px;right:50%; -o-transform: translate(-50%,-50%) ;cursor: pointer;}
+
+/* make nav 3 span and 1 X */
+/* 3span */
+.hamburger,
+.hamburger::before,
+.hamburger::after {content: "";display: block;width: 1.75em;height: 4px;background: #40220F;border-radius: 4px;transition: all ease-in-out 500ms;}
+
+.hamburger::before {transform: translateY(-7px);}
+.hamburger::after {transform: translateY(3.5px);}
+
+.open .hamburger {transform: rotate(45deg);}
+.open .hamburger::before {opacity: 0;}
+.open .hamburger::after {transform: translateY(-3.5px) rotate(-90deg);}
+/*背面*/
+.wrapper_w{width:100%;}
+.wrapper_pic{width:100%;padding-bottom:10px;background:url("../img/bg2023.jpg?1");background-size: 100% 100%;background-position:center;}
+/*副標題*/
+.wrapper_title{margin:0 auto;padding:8px 30px 0px 30px;max-width:280px;
+    
+    position:relative;}
+.wrapper_title .cp_1, .cp_2, .cp_3{
+    margin:5px ;
+    padding-bottom:30px;
+    font-weight:bold;
+    
+    
+    }
+.wrapper_title .ph_1, .ph_2, .ph_33{display:none;}
+
+
+/* .wrapper_title{margin:0 auto;padding:8px 30px 0px 30px;max-width:280px;position:relative;}
+.wrapper_title .ph_1, .ph_2, .ph_3{margin:5px 0;
+    padding-bottom:15px;
+    font-weight:bold;}
+.wrapper_title .cp_1, .cp_2, .cp_3{display:none;} */
+.banner_card{position:absolute;
+padding :40px 74px;margin:300px;}
+.banner2020{margin-bottom:20px;text-align: center;}
+.banner2020 a{padding:10px 20px;text-decoration:none;text-align:center;color:#3f210e;font-weight:bold;font-size:14px;background:linear-gradient(-45deg,#b6965b,#fffcd1,#b6965b,#fffcd1,#b6965b);border-radius:0 0 10px 10px;}
+.banner2020 a:hover{color:white;text-decoration:none;background:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*活動項目*/
+.container{max-width:320px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index:0;}
+/*餐廳*/
+.promo_dinner{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_dinner{width:330px;height:235px;background:url("../img/restaurant_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*貴賓室*/
+.promo_viproom{width:330px;position:relative;margin:15px auto;border-radius:15px;box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_viproom{width:330px;height:235px;background:url("../img/airport_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*高爾夫*/
+.promo_golf{width:330px;position:relative;margin:15px auto;border-radius:15px;box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_golf{width:330px;height:235px;background:url("../img/golf_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*棒球場*/
+.promo_baseball{width:330px;position:relative;margin:15px auto;border-radius:15px;box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_baseball{width:330px;height:235px;background:url("../img/baseball_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*活動項目內容*/
+.content{width:330px;height:115px;box-sizing:border-box;background:#000;border-radius:0px 0px 15px 15px;}
+.headtext{position:relative;height:105px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;box-sizing:border-box;}
+.title{margin:0px;font-size:18px;color:#EDD68B;}
+.content_text{padding:5px 0;font-size:12px;line-height:24px;text-align:center;color:#ffffff;}
+.quantity{margin:0px;font-size:12px;line-height:24px;color:#EDD68B;box-sizing:border-box;}
+
+.promo_baseball .content{width:330px;height:115px;box-sizing:border-box;background:#000;border-radius:0px 0px 15px 15px;}
+.promo_baseball .headtext{position:relative;height:105px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;box-sizing:border-box;}
+.content_baseball{margin:0px;padding:5px 0;font-size:13px;line-height:20px;text-align:center;color:#ffffff;}
+.content_baseball_1{margin:0px;font-size:12px;line-height:20px;text-align:center;color:#ffffff;}
+.headtext hr{position:absolute;bottom:46px;left:63px;width:150px;border:0.3px solid#EDD68B;}
+/*click button*/
+.btn_click{width:330px;height:40px;display:block;
+    background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);
+    -decoration:none;
+    text-align:center;
+    line-height:40px;color:#40220F;font-weight:bold;
+    border-radius:15px 15px 0px 0px;}
+ /*   
+.btn_click:hover{background:#7F3C20;color:white;}
+.btn_click:active{background:#7F3C20;color:white;}
+*/
+/*列表頁*/
+/*餐廳*/
+.list_w{margin:0 auto;padding:0 15px;position:relative;padding-top:15px;}
+.list_post{margin:0 auto;border-radius:3px;color:#FFF;font-size:13px;padding:10px;line-height:22px;letter-spacing:0.8px;}
+.list_container{width:330px;margin:0 auto;align-items:center;}
+.list_box{width:270px;height:375px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;margin:20px 0;position:relative;}
+.list_title{padding:15px 0;text-align:center;color:#333;}
+.list_img img{height:148px;margin:0 20px;}
+.list_logo{position:absolute;bottom:65px;right:65px;color:#333;}
+.note{height:10px;clear:both;color:#FFF;font-size:14px;padding:20px;}
+.list_bt1{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:77px;}
+.list_bt1:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35slinear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*高爾夫*/
+.list_container2{display:flex;flex-direction:column;align-items:center;}
+.list_box2{width:270px;height:375px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;float:left;margin:10px 0;position:relative;}
+.list_title2{padding:15px 0;text-align:center;color:#333;}
+.list_img2 img{height:148px;margin:0 20px;align-items:center;}
+.list_logo2{position:absolute;bottom:65px;right:63px;color:#333;}
+.list_bt2{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:77px;}
+.list_bt2:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.note{clear:both;color:#FFF;padding:15px;}
+
+/*商品詳情頁*/
+/*餐廳和高爾夫*/
+.detail_w{width:270px;margin:0 auto;position:relative;padding-top:30px;}
+.detail_box1{width:270px;height:auto;background: #FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_img img{height:132px;margin:15px;align-items:center;}
+.shop_container{padding:0 20px;display:flex;flex-direction:column;justify-content:space-around;}
+.shop_name{height:65px;font-size:20px;}
+.tag{width:150px;height:48px;font-size:20px;}
+.shop_price{height:48px;padding-top:10px;display:flex;flex-direction:row;align-items:flex-end;}
+.nts{height:32px;font-size:21px;color:#C9A063;font-weight:bold;}
+.money{font-size:36px;padding-left:3px;color:#C9A063;font-weight:bold;}
+.up{height:32px;padding-left:3px;font-size:21px;color:#C9A063;font-weight:bold;}
+.shop_txt{width:215px;height:92px;margin:15px;padding:10px;font-size:14px;color:#333;border:1px solid#C9A063;border-radius:5px;background:#fff2dfe3;overflow:auto;}
+/*貴賓室*/
+.detail_box1_airport{width:270px;height:420px;background:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_name_airport{height:40px;margin:0 15px;font-size:20px;}
+.shop_txt_airport{width:215px;height:92px;margin:015px;padding:10px;font-size:14px;color:#333;border:1px solid#C9A063;border-radius:5px;background:#fff2dfe3;overflow:auto;}
+/*棒球場*/
+.baseball_text {height: 32px;font-size: 18px;color: #C9A063;font-weight: bold;}
+/*click button*/
+.buy_bt a{width:145px;height:52px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;font-size:22px;letter-spacing:5px;position:absolute;bottom:23px;left:20px;}
+.buy_bt a:hover{width:145px;height:52px;background-color:#7F4F21;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.buy_bt2{width:145px;height:52px;background-color:#888;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:23px;left:20px;font-size:22px;letter-spacing:5px;}
+
+.detail_box2{width:270px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:20px;}
+.tr_container{display:flex;flex-direction:column;}
+.detail_logo{width:190px;height:100px;border:solid #999 1px;}
+.td_content{width:100%;margin-top:10px;}
+.detail_item{background-color:#999;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;}
+.detail_txt{font-size:14px;color:#333;line-height:22px;}
+.detail_txt ul{margin:0;padding-left:20px;}
+
+/*同意隱私權頁*/
+.accept_box{width:270px;margin-bottom:25px;padding:35px 0px 35px 0px;background-color:#FFF;clear:both;border-radius:5px;}
+.accept_title{width:210px;margin:0 auto;text-align:center;height:40px;color:#81521b;font-size:18px;font-weight:bold;line-height:28px;}
+.scroll{width:225px;height:450px;overflow:auto;margin:0 auto;margin-top:90px;color:#333;font-size:14px;line-height:22px;}
+.accept_box2{width:100%;height:130px;}
+/*共用框框*/
+.share_box{width:270px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:25px;padding:35px 0px 25px 0px;position:relative;}
+.title_bg{width:213px;height:45px;background-image:url(../img/title_bg.png);position:absolute;top:15px;left:-5px;color:#333;text-align:center;line-height:45px;font-weight:bold;}
+.share_box3{width:90%;padding:30px 10px;margin:0 auto;color:#333;font-size:12px;line-height:24px;}
+.booking_content{width:100%;display:flex;flex-direction:column;}
+.border1{border:2px solid#cfcfcf;}
+.border1 td{border:1px solid#cfcfcf;}
+.border1 tr:nth-child(even){background:#f0f0f0;}
+.border1 tr:nth-child(odd){background:#FFF;}
+/*共用字*/
+.txt1{font-size:14px;color:#FFF;}
+.txt1 a{font-size:14px;color:#C9A063;}
+.txt1 a:hover{color:#7F4F21;}
+.txt2{background-color:#C9A063;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;line-height:32px;}
+.txt3{color:#81521b;font-size:14px;line-height:24px;}
+.txt4{color:#81521b;font-size:14px;font-weight:bold;}
+.txt5{color:#333;font-size:12px; line-height:24px;}
+/*共用小按鈕*/
+.accept_bt{width:270px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.cancel_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.cancel_bt2{width: 280px;margin: 0 auto;padding: 20px 0;display: flex;flex-direction: row;justify-content: space-between;align-content: center;}
+.change_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.check_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.share_bt1{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt1:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.share_bt2{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt2:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+
+/*活動說明*/
+.explain_item_w{height:200px;display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-around;align-items:center;margin:35px 10px 15px 10px;}
+/*活動小按鈕進入購買*/
+.explain_item_mark{width:100%;height:40px;background-color:#C9A063;font-size:12px;line-height:40px;color:#FFF;font-weight:bold;text-decoration:none;text-align:center;border-radius:5px;border:solid 1px#C9A063;border-radius:5px;}
+.explain_item_1{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_1 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:12px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_1 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_2{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_2 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:12px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_2 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_3{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_3 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:12px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_3 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_4{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_4 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:12px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_4 a:hover{background-color:#C9A063;color:#FFF;}
+
+.explain_box{width:95%;margin:30px auto;color:#333;font-size:14px;line-height:24px;margin:10px auto;/*IE7*/}
+.explain_title{display:none;}
+.explain_title_2{background-color:#e9d9c0;color:#333;font-size:15px;font-weight:bold;height:50px;padding:10px;clear:both;}
+.explain_box h2{background-color:#e9d9c0;color:#333;font-size:15px;padding:20px 0 20px 13px;clear:both;}
+.explain_box p{padding-left:10px;clear:both;}
+.explain_box a{color:#C9A063;}
+.explain_box a:hover{color:#956134;}
+.explain_box ul{margin:0;padding-left:30px;clear:both;}
+.explain_box ol{margin:0;padding-left:30px;clear:both;}
+.explain_mark{color:#C00;}
+.explain_content{width:100%;display:flex;flex-direction:column;flex-wrap:wrap;}
+
+.explain_dinner{background:#FEDEC9;padding:5px 0px;}
+
+.step_w{margin:0 auto; width:98%; display: flex;flex-direction: column;align-items: center;}
+.step{width:70%; background-color:#FFF;border-radius:5px;padding:20px; border:solid 3px #c4a95e; margin:10px 18px 20px 18px; font-size:15px;}
+.arrow{ width:5px; height:80px; float:left; line-height:125px; margin:10px 10px 0px 10px;}
+
+.dinner_title{display:none;}
+.dinner_content{width:100%;display:flex;flex-direction:column;flex-wrap:wrap;}
+/*高爾夫*/
+.explain_golf{display: none;}
+.golf_td_1{display: none;}
+.golf_btimes_1{display:none;}
+.booking_times_1{display:none;}
+/*貴賓室*/
+.airport_title{display:none;}
+.explain_airport{display:none;}
+/*棒球場*/
+.step_w_baseball{margin:0 auto;width:98%;margin-bottom:20px;/* IE 7*/ display:flex;flex-direction:column;align-items:center;}
+.step_baseball{width:70%;background-color:#FFF;border-radius:5px;float:left;padding:20px;border:solid 3px #c4a95e;margin:10px 18px 20px 18px;font-size:15px;}
+/*活動小按鈕*/
+.btn_explain{margin:30px auto 10px auto;text-align:center;}
+.btn_ex_booking{padding:15px 60px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-decoration:none;text-align:center;line-height:40px;color:#40220F;font-weight:bold;border-radius:10px;}
+.btn_ex_booking:hover{background:#7F3C20;color:white;}
+.btn_ex_booking:active{background:#7F3C20;color:white;}
+/*隱私權政策條款*/
+.privacy_title_bg{width:220px;height:50px;margin:-10px auto 2px auto;color:#333;text-align:center;line-height:55px;font-weight:bold;box-sizing:border-box;background:linear-gradient(180deg,#E2E2E2,#F5F5F5,#F5F5F5,#E2E2E2,#D6D6D6);border-radius:10px;box-shadow:0px 5px 5px 0px rgba(0,0,0,.2);}
+.privacy{width:220px;margin:0 auto;padding-top:5px;color:#333;font-size:14px;line-height:22px;}
+
+/*活動說明頁*/
+#footer_w{
+    border-top:solid 3px rgb(231, 174, 131);
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 10px;
+    background: #271C18;
+    background-size: cover;
+    background-position: center;
+    /* border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-    slice:30%; */
+    clear:both;
+}
+/* #footer_w{margin:0 auto;
+    background:linear-gradient(-90deg,#190A04,#2A160B,#422513);
+    border-top:solid 5px white;
+    border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;
+    border-image-slice:30%;} */
+#footer{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.footer_u11{padding:0px 25px;list-style:none;box-sizing:border-box;}
+.footer_u11 .footer_bt1{font-size:16px;color:#EDD68B;}
+.footer_u11 hr{width:100%;display:block;float:left;margin:10px 0;border-radius:5px;}
+.footer_u11 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u11 li a{text-decoration:none;color:#ffffff;}
+.footer_u11 li a:hover{background:#C9A063;}
+.footer_u11 li a:active{background:#C9A063;}
+
+.footer_u12{width:200px;padding:0px 25px;list-style:none;box-sizing:border-box;}
+.footer_u12 .footer_bt2{font-size:16px;color:#EDD68B;}
+.footer_u12 hr{width:100%;display:block;float:left;margin:10px 0;border-radius:5px;}
+.footer_u12 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a:hover{background:#C9A063;}
+.footer_u12 li a:active{background:#C9A063;}
+
+.footer_u13{width:230px;padding:0px 25px;list-style:none;box-sizing:border-box;}
+.footer_u13 .footer_bt3{font-size:16px;color:#EDD68B;}
+.footer_u13 hr{width:100%;display:block;float:left;margin:10px 0;border-radius:5px;}
+.footer_u13 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a:hover{background:#C9A063;}
+.footer_u13 li a:active{background:#C9A063;}
+
+.footer_u14{width:230px;padding:0px 25px;list-style:none;box-sizing:border-box;}
+.footer_u14 .footer_bt4{font-size:16px;color:#EDD68B;}
+.footer_u14 hr{width:100%;display:block;float:left;margin:10px 0;border-radius:5px;}
+.footer_u14 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a:hover{background:#C9A063;}
+.footer_u14 li a:active{background:#C9A063;}
+
+.footer_u15{width:150px;padding:0px 25px;list-style:none;box-sizing:border-box;}
+.footer_u15 .footer_bt5{font-size:16px;color:#EDD68B;}
+.footer_u15 hr{width:100%;display:block;float:left;margin:10px 0;border-radius:5px;}
+.footer_u15 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a:hover{background:#C9A063;}
+.footer_u15 li a:active{background:#C9A063;}
+
+.privacy_icon1{padding:15px 25px;}
+
+#footer_w{background: #271C18;}
+.footer_2{width:100%;padding:15px 25px 40px 25px;font-size:14px;line-height:24px;text-align:center;color:#ffffff;box-sizing:border-box;}
+/* .footer_2{width:100%;padding:15px 25px 40px 25px;font-size:14px;line-height:24px;text-align:center;color:#ffffff;box-sizing:border-box;} */
+
+#footer_w2{width:100%;background: #271C18;font-size:14px;position:relative;}
+.footer2{margin:0auto;padding:20px 30px 20px 30px;color:#FFF;line-height:28px;position:relative;}
+.footer2 a{color:#FFF;text-decoration:none;line-height:28px;}
+.footer2 a:hover{color:#CCC;text-decoration:none;}
+}
+/**************平板版面:481px到最大767px。*****************/
+@media screen and (min-width:481px) and (max-width:767px){
+/*提醒通知*/
+#news_w {width: 100%;height: 100%;position:fixed;background:rgba(0,0,0,0.8);z-index: 1;}
+.content_news {position: fixed;top: 50%;left: 50%;width: 275px;height: 250px;text-align: center;background:linear-gradient(-120deg,#F2E9C4,#E4D7B2);margin-left:-130px;margin-top:-180px;z-index: 1;border-radius: 10px;}
+.notice {width: 100%;height: 50px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-align: center;color: #40220F;font-size: 16px;font-weight: bold; line-height: 50px;letter-spacing: 3px;border-radius: 10px 10px 0 0;}
+.content_news p {padding:4px 10px;font-size: 12px;line-height: 24px;}
+.btn_close {width: 100px;height:35px;display:inline-block;text-align: center;line-height: 33px;font-size: 14px;font-weight: 300;color: white;background-color: #40220F;cursor: pointer;border-radius: 5px;}
+.btn_close:hover {background-color: #7F3C20;}
+
+#header_w{width:100%;padding-bottom:0px;background:url("../img/BG_header2023.png?2");background-size: 100% 100%;background-position:center;}
+/* #header_w{width:100%;height:60px;background:linear-gradient(-90deg,#190A04,#2A160B,#422513);} */
+#header{max-width:431px;height:266px;margin:0 auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;}
+.jcblogo img{width:45px;}
+.logo img{width:220px;}
+.subtitle img{width:180px;     margin: 10px auto;}
+/*菜單*/
+#nav{width:100%; margin: 0 auto;}
+.box{display: block; width: 100%; height: 40px; background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42)}
+.menu{width: 100%; height: 0 ; margin: 0 auto;display: 0; text-align: center; overflow: hidden ;background-color: #40220F;}
+.menu ul{margin: 0;padding: 0; list-style: none;}
+.menu li{padding: 15px;}
+.menu li:hover{background-color: #956134; transition: all ease-in-out 500ms;}
+.menu a{text-decoration: none; color:  white;}
+
+
+/* JS for site-nav toggleclass */  
+.menu--open {height: auto;}
+
+/* JS nav click buttom */
+.menu-toggle {width:15px;height:33px;position: absolute;top: 77px;right:50%; -o-transform: translate(-50%,-50%) ;cursor: pointer;}
+
+/* make nav 3 span and 1 X */
+/* 3span */
+.hamburger,
+.hamburger::before,
+.hamburger::after {content: "";display: block;width: 1.75em;height: 4px;background: #40220F;border-radius: 4px;transition: all ease-in-out 500ms;}
+
+.hamburger::before {transform: translateY(-7px);}
+.hamburger::after {transform: translateY(3.5px);}
+
+.open .hamburger {transform: rotate(45deg);}
+.open .hamburger::before {opacity: 0;}
+.open .hamburger::after {transform: translateY(-3.5px) rotate(-90deg);}
+
+/*背面*/
+.wrapper_w{width:100%;}
+.wrapper_pic{width:100%;padding-bottom:10px;background:url("../img/bg2023.jpg?1");background-size:cover;background-position:center;}
+/*副標題*/
+.wrapper_title{max-width:436px;height:128px;margin:0 auto;padding:8px 0px 0px 0px;position:relative;}
+.wrapper_title .ph_1,.ph_2,.ph_3{display:none;}
+.wrapper_title .cp_1,.cp_2,.cp_3{margin:5px 0;font-size:15px;font-weight:bold;text-align:left;}
+.banner_card{position:absolute;right:0px;padding :40px 0px;margin:0;}
+.banner2020{margin-bottom:20px;text-align: center;}
+.banner2020 a{padding:10px 20px;text-decoration:none;text-align:center;color:#3f210e;font-weight:bold;font-size:18px;background:linear-gradient(-45deg,#b6965b,#fffcd1,#b6965b,#fffcd1,#b6965b);border-radius:0 0 10px 10px;}
+.banner2020 a:hover{color:white;text-decoration:none;background:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*活動項目*/
+.container{max-width:320px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index:0;}
+/*餐廳*/
+.promo_dinner{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_dinner{width:330px;height:235px;background:url("../img/restaurant_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*貴賓室*/
+.promo_viproom{width:330px;position:relative;margin:15px auto;border-radius:15px;box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_viproom{width:330px;height:235px;background:url("../img/airport_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*高爾夫*/
+.promo_golf{width:330px;position:relative;margin:15px auto;border-radius:15px;box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_golf{width:330px;height:235px;background:url("../img/golf_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*棒球場*/
+.promo_baseball{width:330px;position:relative;margin:15px auto;border-radius:15px;box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_baseball{width:330px;height:235px;background:url("../img/baseball_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*活動項目內容*/
+.content{width:330px;height:220px;box-sizing:border-box;background:#000;border-radius:0px 0px 15px 15px;}
+.headtext{position:relative;height:105px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;box-sizing:border-box;}
+.title{margin:0px;font-size:18px;color:#EDD68B;}
+.content_text{padding:5px 0;font-size:12px;line-height:24px;text-align:center;color:#ffffff;}
+.quantity{margin:0px;font-size:12px;font-weight: bolder;line-height:24px;color:#EDD68B;box-sizing:border-box;}
+
+.promo_baseball .content{width:330px;height:115px;box-sizing:border-box;background:#000;border-radius:0px 0px 15px 15px;}
+.promo_baseball .headtext{position:relative;height:105px;padding:15px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;box-sizing:border-box;}
+.content_baseball{margin:0px;padding:5px 0;font-size:13px;line-height:20px;text-align:center;color:#ffffff;}
+.content_baseball_1{margin:0px;font-size:12px;line-height:20px;text-align:center;color:#ffffff;}
+.headtext hr{position:absolute;bottom:46px;left:63px;width:150px;border:0.3px solid#EDD68B;}
+/*click button*/
+.btn_click{width:330px;height:40px;display:block;
+    background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);
+    -decoration:none;
+    text-align:center;
+    line-height:40px;color:#40220F;font-weight:bold;
+    border-radius:15px 15px 0px 0px;}
+ /*   
+.btn_click:hover{background:#7F3C20;color:white;}
+.btn_click:active{background:#7F3C20;color:white;}
+*/
+/*列表頁*/
+/*餐廳*/
+.list_w{max-width:411px;margin:0 auto;position:relative;padding-top:15px;}
+.list_post{max-width:678px;margin:0 auto;border-radius:3px;color:#FFF;font-size:13px;padding:10px;line-height:22px;letter-spacing:0.8px;}
+.list_container{max-width:431px;margin:0 15px;display:inline-flex;flex-wrap:wrap;justify-content:center;}
+.list_box{width:330px;height:405px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;margin:10px 0;vertical-align:bottom;position:relative;}
+.list_title{padding:15px 0;text-align:center;color:#333;}
+.list_img img{position:absolute;top:50px;left:23px;color:#333;}
+.list_logo{position:absolute;bottom:65px;right:90px;color:#333;}
+.note{width:100%;height:10px;clear:both;color:#FFF;font-size:14px;padding:20px;}
+.list_bt1{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:102px;}
+.list_bt1:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*高爾夫*/
+.list_container2{display:flex;flex-direction:column;align-items:center;}
+.list_box2{width:330px;height:405px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;margin:10px 0;vertical-align:bottom;position:relative;}
+.list_title2{padding:15px 0;text-align:center;color:#333;}
+.list_img2 img{height:185px;margin:0 20px;}
+.list_logo2{position:absolute;bottom:65px;right:90px;color:#333;}
+.list_bt2{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:102px;}
+.list_bt2:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.note{clear:both;color:#FFF;padding:15px;}
+
+/*商品詳情頁*/
+/*餐廳和高爾夫*/
+.detail_w{width:431px;margin:0 auto;position:relative;padding-top:30px;}
+.detail_box1{width:431px;height:auto;background-color:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_img img{height:210px;margin:0px;align-items:center;}
+.shop_container{margin:0 25px;padding:0 10px;display:flex;flex-direction:row;justify-content:space-between;flex-wrap:wrap;}
+.shop_name{height:50px;font-size:20px;}
+.tag{width:150px;height:48px;font-size:20px;}
+.shop_price{height:48px;padding-top:10px;display:flex;flex-direction:row;align-items:flex-end;}
+.nts{height:32px;font-size:21px;color:#C9A063;font-weight:bold;}
+.money{font-size:36px;padding-left:3px;color:#C9A063;font-weight:bold;}
+.up{height:32px;padding-left:3px;font-size:21px;color:#C9A063;font-weight:bold;}
+.shop_txt{width:360px;height:75px;margin:20px 25px;padding:10px;font-size:14px;color:#333;border:1px solid#C9A063;border-radius:5px;background:#fff2dfe3;overflow:auto;}
+/*貴賓室*/
+.detail_box1_airport{width:431px;height:495px;background:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_name_airport{width:100px;height:50px;margin:025px;padding-bottom:5px;font-size:20px;}
+.shop_txt_airport{width:360px;height:75px;margin:20px 25px;padding:10px;font-size:14px;color:#333;border:1px solid#C9A063;border-radius:5px;background:#fff2dfe3;overflow:auto;}
+/*棒球場*/
+.baseball_text {height: 32px;font-size: 18px;color: #C9A063;font-weight: bold;}
+/*click button*/
+.buy_bt a{width:145px;height:52px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;font-size:22px;letter-spacing:5px;position:absolute;bottom:143px;right:40px;}
+.buy_bt a:hover{width:145px;height:52px;background-color:#7F4F21;
+transition:background-color.35slinear;
+-moz-transition:background-color.35slinear;/*Firefox4*/
+-webkit-transition:background-color.35slinear;/*SafariandChrome*/
+-o-transition:background-color.35slinear;/*Opera*/}
+.buy_bt2{width:145px;height:52px;background-color:#888;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:143px;right:40px;font-size:22px;letter-spacing:5px;}
+
+.detail_box2{width:431px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:20px;}
+.detail_logo{width:190px;height:100px;border:solid #999 1px;}
+.td_content{width:43%;}
+.detail_item{background-color:#999;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;}
+.detail_txt{font-size:14px;color:#333;line-height:22px;}
+.detail_txt ul{margin:0;padding-left:20px;}
+
+/*同意隱私權頁*/
+.accept_title{width:400px;margin:0 auto;text-align:center;height:40px;color:#81521b;font-size:18px;font-weight:bold;line-height:28px;}
+.scroll{width:363px;height:450px;overflow:auto;margin:0 auto;margin-top:40px;color:#333;font-size:14px;line-height:22px;}
+.accept_box{width:431px;margin-bottom:25px;padding:35px 0px 35px 0px;background-color:#FFF;clear:both;border-radius:5px;}
+.accept_box2{width:100%;height:130px;}
+/*共用框框*/
+.share_box{width:431px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:25px;padding:35px 0px 25px 0px;position:relative;}
+.title_bg{width:213px;height:45px;background-image:url(../img/title_bg.png);position:absolute;top:15px;left:-5px;color:#333;text-align:center;line-height:45px;font-weight:bold;}
+.share_box3{width:90%;padding:25px 20px;margin:0 auto;color:#333;font-size:12px;line-height:24px;}
+.border1{border:2px solid#cfcfcf;}
+.border1 td{border:1px solid#cfcfcf;}
+.border1 tr:nth-child(even){background:#f0f0f0;}
+.border1 tr:nth-child(odd){background:#FFF;}
+/*共用字*/
+.txt1{font-size:14px;color:#FFF;}
+.txt1 a{font-size:14px;color:#C9A063;}
+.txt1 a:hover{color:#7F4F21;}
+.txt2{background-color:#C9A063;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;line-height:32px;}
+.txt3{color:#81521b;font-size:14px;line-height:24px;}
+.txt4{width:33%;color:#81521b;font-size:14px;font-weight:bold;}
+/*共用小按鈕*/
+.accept_bt{width:280px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.cancel_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.cancel_bt2{width:280px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.change_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.check_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.share_bt1{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt1:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35slinear;
+-moz-transition:background-color.35slinear;/*Firefox4*/
+-webkit-transition:background-color.35slinear;/*SafariandChrome*/
+-o-transition:background-color.35slinear;/*Opera*/}
+.share_bt2{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt2:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35slinear;
+-moz-transition:background-color.35slinear;/*Firefox4*/
+-webkit-transition:background-color.35slinear;/*SafariandChrome*/
+-o-transition:background-color.35slinear;/*Opera*/}
+
+/*活動說明*/
+.explain_item_w{height:200px;display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-around;align-items:center;margin:35px 10px 15px 10px;}
+/*活動小按鈕進入購買*/
+.explain_item_mark{width:100%;height:40px;background-color:#C9A063;font-size:14px;line-height:40px;color:#FFF;font-weight:bold;text-decoration:none;text-align:center;border-radius:5px;border:solid 1px#C9A063;border-radius:5px;}
+.explain_item_1{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_1 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:14px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_1 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_2{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_2 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:14px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_2 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_3{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_3 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:14px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_3 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_4{width:100%;height:40px;text-align:center;background-color:#FFF;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_4 a{width:100%;height:40px;display:block;background-color:#FFF;font-size:14px;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;box-sizing:border-box;}
+.explain_item_4 a:hover{background-color:#C9A063;color:#FFF;}
+
+.explain_box{width:95%;margin:30px auto;color:#333;font-size:14px;line-height:24px;margin:10px auto;/*IE7*/}
+.explain_title{background-color:#e9d9c0;color:#333;font-size:15px;font-weight:bold;height:50px;line-height:50px;padding-left:10px;clear:both;}
+.explain_title_2{display:none;}
+.explain_box h2{background-color:#e9d9c0;color:#333;font-size:15px;padding:20px 0 20px 13px;clear:both;}
+.explain_box p{padding-left:10px;clear:both;}
+.explain_box a{color:#C9A063;}
+.explain_box a:hover{color:#956134;}
+.explain_box ul{margin:0;padding-left:30px;clear:both;}
+.explain_box ol{margin:0;padding-left:30px;clear:both;}
+.explain_mark{color:#C00;}
+
+.explain_dinner{display:none;}
+
+.step_w{margin:0 auto; width:98%; display: flex;flex-direction: column;flex-wrap: wrap;justify-content: space-around;align-content: center;overflow:hidden;}
+.step{width:70%; background-color:#FFF;border-radius:5px;padding:20px; border:solid 3px #c4a95e; margin:10px 18px 20px 18px; font-size:15px;}
+.arrow{ width:5px; height:80px; float:left; line-height:125px; margin:10px 10px 0px 10px;}
+/*高爾夫*/
+.explain_golf{display: none;}
+.golf_td_1{width:45%;}
+.golf_td_2{width:30%;}
+.golf_td_3{width:25%;}
+.golf_btimes_2{display:none;}
+.booking_times_2{display:none;}
+/*貴賓室*/
+.explain_airport{display: none;}
+.airport_td_1{width:14%;}
+.airport_td_2{width:21%;}
+.airport_td_3{width:42%;}
+.airport_td_4{width:23%;}
+/*棒球場*/
+.step_w_baseball{margin:0 auto;width:98%;margin-bottom:20px;/* IE 7*/ display:flex;flex-direction:column;align-items:center;}
+.step_baseball{width:70%;background-color:#FFF;border-radius:5px;float:left;padding:20px;border:solid 3px #c4a95e;margin:10px 18px 20px 18px;font-size:15px;}
+/*活動小按鈕*/
+.btn_explain{margin:30px auto 10px auto;text-align:center;}
+.btn_ex_booking{padding:15px 60px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-decoration:none;text-align:center;line-height:40px;color:#40220F;font-weight:bold;border-radius:10px;}
+.btn_ex_booking:hover{background:#7F3C20;color:white;}
+.btn_ex_booking:active{background:#7F3C20;color:white;}
+
+/*隱私權政策條款*/
+.privacy_title_bg{width:363px;height:50px;margin:-10px auto 2px auto;color:#333;text-align:center;line-height:55px;font-weight:bold;box-sizing:border-box;background:linear-gradient(180deg,#E2E2E2,#F5F5F5,#F5F5F5,#E2E2E2,#D6D6D6);border-radius:10px;box-shadow:0px 5px 5px 0px rgba(0,0,0,.2);}
+.privacy{width:363px;margin:0 auto;padding-top:5px;color:#333;font-size:14px;line-height:22px;}
+
+/*活動說明頁*/
+#footer_w{
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 10px;
+    background: #271C18;
+    background-size: cover;
+    background-position: center;
+    border-top:solid 5px white;
+    border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-    slice:30%;clear:both;
+}
+/* #footer_w{background:linear-gradient(-90deg,#190A04,#2A160B,#422513);border-top:solid 5px white;border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-slice:30%;} */
+#footer{margin:0 auto;max-width:430px;display:flex;flex-wrap:wrap;justify-content:space-between;}
+.footer_u11{width:215px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u11 .footer_bt1{font-size:16px;color:#EDD68B;}
+.footer_u11 hr{width:95%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u11 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u11 li a{text-decoration:none;color:#ffffff;}
+.footer_u11 li a:hover{background:#C9A063;}
+.footer_u11 li a:active{background:#C9A063;}
+
+.footer_u12{width:190px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u12 .footer_bt2{font-size:16px;color:#EDD68B;}
+.footer_u12 hr{width:80%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u12 li{width:150px;padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a:hover{background:#C9A063;}
+.footer_u12 li a:active{background:#C9A063;}
+
+.footer_u13{width:215px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u13 .footer_bt3{font-size:16px;color:#EDD68B;}
+.footer_u13 hr{width:80%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u13 li{width:170px;padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a:hover{background:#C9A063;}
+.footer_u13 li a:active{background:#C9A063;}
+
+.footer_u14{width:190px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u14 .footer_bt4{font-size:16px;color:#EDD68B;}
+.footer_u14 hr{width:90%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u14 li{width:170px;padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a:hover{background:#C9A063;}
+.footer_u14 li a:active{background:#C9A063;}
+
+.footer_u15{width:170px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u15 .footer_bt5{font-size:16px;color:#EDD68B;}
+.footer_u15 hr{width:60%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u15 li{width:100px;padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a:hover{background:#C9A063;}
+.footer_u15 li a:active{background:#C9A063;}
+
+#footer_w{background: #271C18;}
+.footer_2{max-width:481px;margin:0 auto;padding:15px 25px 40px 25px;font-size:14px;line-height:24px;text-align:center;color:#ffffff;box-sizing:border-box;}
+
+#footer_w2{background: #271C18;font-size:14px;position:relative;}
+.footer2{max-width:400px;color:#FFF;line-height:28px;margin:0 auto;padding:20px 0;position:relative;}
+.footer2 a{color:#FFF;text-decoration:none;line-height:28px;}
+.footer2 a:hover{color:#CCC;text-decoration:none;}
+}
+/**************平板版面:768px到最大1024px。*****************/
+@media screen and (min-width:768px) and (max-width:1024px){
+/*提醒通知*/
+#news_w {width: 100%;height: 100%;position:fixed;background:rgba(0,0,0,0.8);z-index: 1;}
+.content_news {position: fixed;top: 50%;left: 50%;width: 380px;height: 275px;text-align: center;background:linear-gradient(-120deg,#F2E9C4,#E4D7B2);margin-left:-200px;margin-top:-180px;z-index: 1;border-radius: 10px;}
+.notice {width: 100%;height: 50px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-align: center;color: #40220F;font-size: 16px;font-weight: bold; line-height: 50px;letter-spacing: 3px;border-radius: 10px 10px 0 0;}
+.content_news p {padding: 10px 15px;font-size: 14px;line-height: 24px;}
+.btn_close {width: 100px;height:35px;display:inline-block;text-align: center;line-height: 33px;font-size: 14px;font-weight: 300;color: white;background-color: #40220F;cursor: pointer;border-radius: 5px;}
+.btn_close:hover {background-color: #7F3C20;} 
+
+
+
+#header_w{width:100%;padding-bottom:0px;background:url("../img/BG_header2023.png?2");background-size: 100% 100%;background-position:center;}
+/* #header_w{width:100%;height:110px;background:linear-gradient(-90deg,#190A04,#2A160B,#422513);}#header_w#header{max-width:718px;height:110px;margin:0 auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;} */
+#header {max-width: 718px;height: 266px;margin:0 auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;}
+.jcblogo img{width:92px;     margin-bottom: 120px;}
+.logo img{width:350px;}
+.subtitle img{width:180px;     margin: 10px auto;}
+/*菜單*/
+#nav {width:100%;height:53px; background: linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);}
+.menu {width: 718px;margin: 0 auto;}
+.menu ul {margin: 0;padding: 0;list-style:none;display:flex;flex-direction:row;justify-content:space-between;}
+.menu ul li {text-align:center;line-height:53px;font-weight:bold;letter-spacing: 0.5px;cursor:pointer}
+.menu ul li a {display:inline-block;color:#40220F;padding:0px 20px;text-decoration:none;}
+.menu ul li a:hover {color: white;background: #956134;}
+/*背面*/
+.wrapper_w{width:100%;height:880px;}
+.wrapper_pic{width:100%;height:895px;position:relative;padding-bottom:10px;background:url("../img/bg2023.jpg?1");background-size:cover;background-position:center;}
+/*副標題*/
+.wrapper_title{margin:0 auto;padding:15px 0px;max-width:758px;height:105px;position:relative;}
+.wrapper_title .cp_1,.cp_2,.cp_3{
+    font-size: 16px;
+    line-height:18px;
+    font-weight:bold;
+    text-align: center;
+    /* display:inline-block; */
+    }
+.wrapper_title .ph_1,.ph_2,.ph_3{display:none;}
+.banner_card{position:absolute;right:50px;padding :20px 20px;}
+.banner2020 a{position:absolute;top:0px;left:0px;padding: 13px;px;text-decoration:none;text-align:center;color:#3f210e;font-weight:bold;font-size:14px;background:linear-gradient(-45deg,#b6965b,#fffcd1,#b6965b,#fffcd1,#b6965b);border-radius:0 0 10px 10px;}
+.banner2020 a:hover{color:white;text-decoration:none;background:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*活動項目*/
+.container{width:748px;height:510px;margin:25px auto;display:flex;flex-wrap:wrap;justify-content:space-between;z-index:0;}
+/*餐廳*/
+.promo_dinner{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_dinner{width:330px;height:235px;background:url("../img/restaurant_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*貴賓室*/
+.promo_viproom{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.0);}
+.img_viproom{width:330px;height:235px;;background:url("../img/airport_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px px;}
+/*高爾夫*/
+.promo_golf{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_golf{width:330px;height:235px;;background:url("../img/golf_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*棒球場*/
+.promo_baseball{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_baseball{width:330px;height:235px;;background:url("../img/baseball_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*活動項目內容*/
+.content{width:330px;height:115px;box-sizing:border-box;background:#000;border-radius:0px 0px 15px 15px;}
+.headtext{position:relative;height:105px;padding:10px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;}
+.title{margin:0;font-size:20px;text-align:center;color:#EDD68B;}
+.content_text{padding:5px 0;font-size:12px;line-height:24px;text-align:center;color:#ffffff;}
+.quantity{margin:0;font-size:12px;font-weight: bolder;line-height:24px;text-align:center;color:#EDD68B;box-sizing:border-box;}
+
+.content_baseball{margin:0;padding:5px 0;font-size:13px;line-height:20px;text-align:center;color:#ffffff;}
+.content_baseball_1{margin:0;font-size:12px;line-height:20px;text-align:center;color:#ffffff;}
+.headtext hr{position:absolute;top:115px;left:20px;width:225px;border:0.3px solid#EDD68B;}
+/*click button*/
+.btn_click{width:330px;height:42px;display:block;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);line-height:40px;text-decoration:none;text-align:center;color:#40220F;border-radius:15px 15px 0px 0px;font-weight:bold;}
+/*
+.btn_click:hover{background:#7F3C20;color:white;}
+.btn_click:active{background:#7F3C20;color:white;}
+*/
+/*列表頁*/
+/*餐廳*/
+.list_w{max-width:718px;margin:0 auto;position:relative;padding-top:15px;}
+.list_post{max-width:678px;margin:0 auto;border-radius:3px;color:#FFF;font-size:13px;padding:10px;line-height:22px;letter-spacing:0.8px;}
+.list_container{max-width:718px;margin:0 15px;display:inline-flex;flex-wrap:wrap;justify-content:space-between;}
+.list_box{width:330px;height:405px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;margin:10px 0;vertical-align:bottom;position:relative;}
+.list_title{padding:15px 0;text-align:center;color:#333;}
+.list_img img{position:absolute;top:50px;left:23px;color:#333;}
+.list_logo{position:absolute;bottom:65px;right:90px;color:#333;}
+.note{width:100%;height:10px;clear:both;color:#FFF;font-size:14px;padding:20px;}
+.list_bt1{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:102px;}
+.list_bt1:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*高爾夫*/
+.list_container2{width:700px;display:inline-flex;flex-wrap:wrap;justify-content:space-between;}
+.list_box2{width:330px;height:405px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;margin:10px;vertical-align:bottom;position:relative;}
+.list_title2{padding:15px 0;text-align:center;color:#333;}
+.list_img2 img{height:192px;margin:0 15px;}
+.list_logo2{position:absolute;bottom:65px;right:90px;color:#333;}
+.list_bt2{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:102px;}
+.list_bt2:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.note{clear:both;color:#FFF;padding:15px;}
+
+/*商品詳情頁*/
+/*餐廳和高爾夫*/
+.detail_w{width:718px;margin:0 auto;position:relative;padding-top:30px;}
+.detail_box1{width:718px;height:585px;background-color:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_img img{width:625px;height:345px;margin:25px 46px;align-items:center;}
+.shop_container{margin:0 46px;display:flex;flex-direction:row;justify-content:space-between;flex-wrap:wrap;}
+.shop_name{height:50px;font-size:20px;}
+.tag{width:150px;height:48px;font-size:20px;}
+.shop_price{height:48px;display:flex;flex-direction:row;align-items:flex-end;}
+.nts{height:40px;font-size:26px;color:#C9A063;font-weight:bold;}
+.money{font-size:48px;color:#C9A063;font-weight:bold;}
+.up{height:40px;font-size:26px;color:#C9A063;font-weight:bold;}
+.shop_txt{width:350px;height:75px;margin:20px 46px;padding:10px;font-size:14px;color:#333;border:1px solid#C9A063;border-radius:5px;background:#fff2dfe3;overflow:auto;}
+/*貴賓室*/
+.detail_box1_airport{width:718px;height:585px;background:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_name_airport{height:50px;margin:0 46px;font-size:20px;}
+.shop_txt_airport{width:350px;height:75px;margin:0px 46px 20px 46px;padding:10px;font-size:14px;color:#333;border:1px solid#C9A063;border-radius:5px;background:#fff2dfe3;overflow:auto;}
+/*棒球場*/
+.baseball_text {height: 40px;font-size: 21px;color: #C9A063;font-weight: bold;}
+/*click button*/
+.buy_bt a{width:200px;height:52px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;font-size:22px;letter-spacing:5px;position:absolute;bottom:47px;right:45px;}
+.buy_bt a:hover{width:200px;height:52px;background-color:#7F4F21;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.buy_bt2{width:200px;height:52px;background-color:#888;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:47px;right:45px;font-size:22px;letter-spacing:5px;}
+
+.detail_box2{width:718px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:20px;}
+.detail_logo{width:190px;height:100px;border:solid #999 1px;}
+.td_content{width:60%;}
+.detail_item{background-color:#999;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;}
+.detail_txt{font-size:14px;color:#333;line-height:22px;}
+.detail_txt ul{margin:0;padding-left:20px;}
+
+/*同意隱私權頁*/
+.accept_title{width:620px;margin:0 auto;text-align:center;height:40px;color:#81521b;font-size:18px;font-weight:bold;line-height:28px;}
+.scroll{width:650px;height:450px;overflow:auto;margin:0 auto;margin-top:40px;color:#333;font-size:14px;line-height:22px;}
+.accept_box{width:718px;margin-bottom:25px;padding:35px 0px 35px 0px;background-color:#FFF;clear:both;border-radius:5px;}
+.accept_box2{width:100%;height:130px;}
+/*共用框框*/
+.share_box{width:718px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:25px;padding:35px 0px 25px 0px;position:relative;}
+.title_bg{width:213px;height:45px;background-image:url(../img/title_bg.png);position:absolute;top:15px;left:-5px;color:#333;text-align:center;line-height:45px;font-weight:bold;}
+.share_box3{width:90%;padding:25px 30px;margin:0 auto;color:#333;font-size:12px;line-height:24px;}
+.border1{border:2px solid#cfcfcf;}
+.border1 td{border:1px solid#cfcfcf;}
+.border1 tr:nth-child(even){background:#f0f0f0}
+.border1 tr:nth-child(odd){background:#FFF;}
+/*共用字*/
+.txt1{font-size:14px;color:#FFF;}
+.txt1 a{font-size:14px;color:#C9A063;}
+.txt1 a:hover{color:#7F4F21;}
+.txt2{background-color:#C9A063;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;line-height:32px;}
+.txt3{color:#81521b;font-size:14px;line-height:24px;}
+.txt4{width:24%;color:#81521b;font-size:14px;font-weight:bold;}
+/*共用小按鈕*/
+.accept_bt{width:280px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.cancel_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.cancel_bt2{width:280px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.change_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.check_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.share_bt1{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt1:hover{width:130px;height:40px;
+background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.share_bt2{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt2:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+
+/*活動說明*/
+.explain_item_w{margin:30px auto 25px auto;width:580px;height:100px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;}
+/*活動小按鈕*/
+.explain_item_mark{display:block;width:277px;height:40px;background-color:#C9A063;margin:5px;font-size:14px;text-align:center;line-height:40px;color:#FFF;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_1 a{display:block;width:277px;height:40px;background-color:#FFF;margin:5px;font-size:14px;text-align:center;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_1 a:hover{background-color:#C9A063; color:#FFF; }
+.explain_item_2 a{display:block;width:277px;height:40px;background-color:#FFF;margin:5px;font-size:14px;text-align:center;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_2 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_3 a{display:block;width:277px;height:40px;background-color:#FFF;margin:5px;font-size:14px;text-align:center;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_3 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_4 a{display:block;width:277px;height:40px;background-color:#FFF;margin:5px;font-size:14px;text-align:center;line-height:40px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_4 a:hover{background-color:#C9A063;color:#FFF;}
+
+.explain_box{width:95%;margin:30px auto;color:#333;font-size:14px;line-height:24px;margin:10px auto;/*IE7*/}
+.explain_title{background-color:#e9d9c0;color:#333;font-size:15px;font-weight:bold;height:50px;line-height:50px;padding-left:10px;clear:both;}
+.explain_title_2{display:none;}
+.explain_box h2{background-color:#e9d9c0;color:#333;font-size:15px;height:50px;line-height:50px;padding-left:10px;clear:both;}
+.explain_box p{padding-left:10px;clear:both;}
+.explain_box a{color:#C9A063;}
+.explain_box a:hover{color:#956134;}
+.explain_box ul{margin:0;padding-left:30px;clear:both;}
+.explain_box ol{margin:0;padding-left:30px;clear:both;}
+
+.explain_mark{color:#C00;}
+.explain_dinner{display:none;}
+.step_w{margin:0 auto; width:98%; margin-bottom:20px;/* IE 7*/ overflow:hidden;}
+.step{width:37%; height:190px; background-color:#FFF;border-radius:5px; float:left; padding:20px; border:solid 3px #c4a95e; margin:10px 18px 20px 18px; font-size:15px;}
+.arrow{ width:5px; height:80px; float:left; line-height:125px; margin:10px 10px 0px 10px;}
+/*高爾夫*/
+.explain_golf{display: none;}
+.golf_td_1{width:45%;}
+.golf_td_2{width:30%;}
+.golf_td_3{width:25%;}
+.golf_btimes_2{display:none;}
+.booking_times_2{display:none;}
+/*貴賓室*/
+.explain_airport{display: none;}
+.airport_td_1{width:14%;}
+.airport_td_2{width:21%;}
+.airport_td_3{width:42%;}
+.airport_td_4{width:23%;}
+/*棒球場*/
+.step_w_baseball{margin:0 auto;width:98%;margin-bottom:20px;/* IE 7*/ display:flex;flex-direction:column;align-items:center;}
+.step_baseball{width:70%;background-color:#FFF;border-radius:5px;float:left;padding:20px;border:solid 3px #c4a95e;margin:10px 18px 20px 18px;font-size:15px;}
+/*活動小按鈕進入購買*/
+.btn_explain{margin:30px auto 10px auto;text-align:center;}
+.btn_ex_booking{padding:15px 60px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-decoration:none;text-align:center;line-height:40px;color:#40220F;font-weight:bold;border-radius:10px;}
+.btn_ex_booking:hover{background:#7F3C20;color:white;}
+.btn_ex_booking:active{background:#7F3C20;color:white;}
+
+/*隱私權政策條款*/
+.privacy_title_bg{width:490px;height:50px;margin:-10px auto 2px auto;color:#333;text-align:center;line-height:55px;font-weight:bold;box-sizing:border-box;background:linear-gradient(180deg,#E2E2E2,#F5F5F5,#F5F5F5,#E2E2E2,#D6D6D6);border-radius:10px;box-shadow:0px 5px 5px 0px rgba(0,0,0,.2);}
+.privacy{width:650px;margin:0 auto;padding-top:5px;color:#333;font-size:14px;line-height:22px;}
+
+/*活動說明頁*/
+#footer_w{
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 10px;
+    background: #271C18;
+    background-size: cover;
+    background-position: center;
+    border-top:solid 5px white;
+    border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-    slice:30%;clear:both;
+}
+
+/* #footer_w{background:linear-gradient(-90deg,#190A04,#2A160B,#422513);border-top:solid 5px white;border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-slice:30%;} */
+#footer{margin:0 auto;max-width:745px;position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;}
+.footer_u11{width:210px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u11 .footer_bt1{font-size:16px;color:#EDD68B;}
+.footer_u11 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u11 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u11 li a{text-decoration:none;color:#ffffff;}
+.footer_u11 li a{text-decoration:none;color:#ffffff;}
+.footer_u11 li a:hover{background:#C9A063;}
+.footer_u11 li a:active{background:#C9A063;}
+
+.footer_u12{width:200px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u12 .footer_bt2{font-size:16px;color:#EDD68B;}
+.footer_u12 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u12 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a:hover{background:#C9A063;}
+.footer_u12 li a:active{background:#C9A063;}
+
+.footer_u13{width:200px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u13 .footer_bt3{font-size:16px;color:#EDD68B;}
+.footer_u13 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u13 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a:hover{background:#C9A063;}
+.footer_u13 li a:active{background:#C9A063;}
+
+.footer_u14{width:200px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u14 .footer_bt4{font-size:16px;color:#EDD68B;}
+.footer_u14 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u14 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a:hover{background:#C9A063;}
+.footer_u14 li a:active{background:#C9A063;}
+
+.footer_u15{width:180px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u15 .footer_bt5{font-size:16px;color:#EDD68B;}
+.footer_u15 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u15 li{padding-top:10px;font-size:14px;line-height:15px;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a:hover{background:#C9A063;}
+.footer_u15 li a:active{background:#C9A063;}
+
+#footer_w{clear:both;}
+#footer_w .footer_2{margin:0 auto;max-width:718px;padding:15px 0px;font-size:12px;line-height:20px;text-align:center;color:#ffffff;box-sizing:border-box;}
+
+#footer_w2{background: #271C18;font-size:14px;position:relative;}
+.footer2{max-width:688px;color:#FFF;line-height:28px;margin:0 auto;padding:20px 0;position:relative;}
+.footer2 a{color:#FFF;text-decoration:none;line-height:28px;}
+.footer2 a:hover{color:#CCC;text-decoration:none;}
+.footer2 .privacy_icon{position:absolute;top:5px;right:0px;}
+}
+
+/**************電腦版面:1025px到最大。*****************/
+@media only screen and (min-width:1025px){
+/*提醒通知*/
+#news_w {width: 100%;height: 100%;position:fixed;background:rgba(0,0,0,0.8);z-index: 1;}
+.content_news {position: fixed;top: 50%;left: 50%;width: 380px;height: 275px;text-align: center;background:linear-gradient(-120deg,#F2E9C4,#E4D7B2);margin-left:-200px;margin-top:-180px;z-index: 1;border-radius: 10px;}
+.notice {width: 100%;height: 50px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-align: center;color: #40220F;font-size: 16px;font-weight: bold; line-height: 50px;letter-spacing: 3px;border-radius: 10px 10px 0 0;}
+.content_news p {padding: 10px 15px;font-size: 14px;line-height: 24px;}
+.btn_close {width: 100px;height:35px;display:inline-block;text-align: center;line-height: 33px;font-size: 14px;font-weight: 300;color: white;background-color: #40220F;cursor: pointer;border-radius: 5px;}
+.btn_close:hover {background-color: #7F3C20;}
+
+#header_w{width:100%;padding-bottom:10px;background:url("../img/BG_header2023.png?2");background-size: 100% 100%;background-position:center;}
+#header{width:700px;height:266px;margin:0 auto;display:flex;flex-direction:row;justify-content:space-between;align-items:center;}
+.jcblogo img{width:92px;     margin-bottom: 120px;}
+.logo img{width:420px;}
+.subtitle img{width:180px;     margin: 10px auto;}
+/*菜單*/
+#nav{width:100%;height:53px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);}
+#nav .menu{width:950px;margin:0 auto;}
+.menu ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:row;justify-content:space-between;}
+.menu ul li{text-align:center;line-height:53px;font-weight:bold;letter-spacing:0.5px;cursor:pointer}
+.menu ul li a{display:inline-block;color:#40220F;padding:0px 40px;text-decoration:none;}
+.menu ul li a:hover{color:white;background:#956134;}
+/*背面*/
+.wrapper_w{width:100%;height:960px;}
+.wrapper_pic {top: 20px;width: 100%;height: 930px;position: relative;padding-bottom: 10px; background: url("../img/bg2023.jpg?1");background-size: cover;background-position: center;}
+/*副標題*/
+.wrapper_title{max-width:950px;height:105px;
+    margin:0 auto;padding:15px 0px;position:relative;padding:15px px;}
+.wrapper_title .cp_1,.cp_2,.cp_3{
+    line-height:13px;
+    font-weight:bold;
+    text-align: center;
+    /* display:inline-block; */
+    }
+.wrapper_title .ph_1,.ph_2,.ph_3{display:none;text-align:end;}
+.banner_card{position:absolute;right:50px;padding :20px 20px;}
+.banner2020 a{position:absolute;
+    top:0px;left:0px;padding:16px;text-decoration:none;text-align:center;color:#3f210e;font-weight:bold;font-size:15px;background:linear-gradient(-45deg,#b6965b,#fffcd1,#b6965b,#fffcd1,#b6965b);border-radius:0 0 10px 10px;}
+.banner2020 a:hover{color:white;text-decoration:none;background:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*活動項目*/
+.container{width:748px;height:510px;margin:25px auto;display:flex;flex-wrap:wrap;justify-content:space-between;z-index:0;}
+/*餐廳*/
+.promo_dinner{width:330px;position :relative;
+    margin:15px auto;
+    border-radius:15px;
+
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_dinner{width:330px;height:235px;background:url("../img/restaurant_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*貴賓室*/
+.promo_viproom{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.0);}
+.img_viproom{width:330px;height:235px;;background:url("../img/airport_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px px;}
+/*高爾夫*/
+.promo_golf{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_golf{width:330px;height:235px;;background:url("../img/golf_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*棒球場*/
+.promo_baseball{width:330px;position:relative;
+    margin:15px auto;
+    border-radius:15px;
+    box-shadow:0px 5px 10px 0px rgba(0,0,0,.5);}
+.img_baseball{width:330px;height:235px;;background:url("../img/baseball_img.png");background-size:cover;background-position:center;border-radius:0px 0px 0px 0px;}
+/*活動項目內容*/
+.content{width:330px;height:115px;box-sizing:border-box;background:#000;border-radius:0px 0px 15px 15px;}
+.headtext{position:relative;height:105px;padding:10px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;}
+.title{margin:0;font-size:20px;text-align:center;color:#EDD68B;}
+.content_text{padding:0px 0;font-size:12px;line-height:20px;text-align:center;color:#ffffff;}
+.quantity{margin:0;font-size:12px;font-weight: bolder;line-height:24px;text-align:center;color:#EDD68B;box-sizing:border-box;}
+
+.content_baseball{margin:0;padding:5px 0;font-size:13px;line-height:18px;text-align:center;color:#ffffff;}
+.content_baseball_1{margin:0;font-size:12px;line-height:20px;text-align:center;color:#ffffff;}
+/* .headtext hr{position:absolute;top:115px;left:20px;width:225px;border:0.3px solid#EDD68B;} */
+/*click button*/
+.btn_click{    font-size: 16px;width:330px;height:42px;display:block;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);line-height:40px;text-decoration:none;text-align:center;color:#40220F;border-radius:15px 15px 0px 0px;font-weight:bold;}
+/*
+.btn_click:hover{background:#7F3C20;color:white;}
+.btn_click:active{background:#7F3C20;color:white;}
+*/
+/*列表頁*/
+/*餐廳*/
+.list_w{width:970px;margin:0 auto;position:relative;padding-top:15px;}
+.list_post{width:930px;margin:0 auto;border-radius:3px;color:#FFF;font-size:13px;padding:10px;line-height:22px;letter-spacing:0.8px;}
+.list_box{width:465px;height:255px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;float:left;margin:5px;margin-right:15px;vertical-align:bottom;position:relative;}
+.list_title{position:absolute;top:20px;left:15px;color:#333;}
+.list_img img{position:absolute;top:50px;left:15px;color:#333;}
+.list_logo{position:absolute;top:55px;right:15px;color:#333;}
+.note{width:100%;height:10px;clear:both;color:#FFF;font-size:14px;padding:20px;}
+.list_bt1{width:115px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:60px;right:25px;}
+.list_bt1:hover{width:115px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+/*高爾夫*/
+.list_box2{width:308px;height:390px;background:linear-gradient(180deg,#fff,#fff,#d7d7d7);border-radius:8px;float:left;margin:5px;margin-right:10px;position:relative;}
+.list_title2{position:absolute;top:20px;left:14px;color:#333;width:281px;text-align:center;}
+.list_img2 img{position:absolute;top:50px;left:14px;color:#333;}
+.list_logo2{position:absolute;top:230px;left:81px;color:#333;}
+.list_bt2{width:150px;height:35px;background-color:#C9A063;display:block;border-radius:5px;text-align:center;line-height:35px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:20px;left:76px;}
+.list_bt2:hover{width:150px;height:35px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.note{clear:both;color:#FFF;padding:15px;}
+
+/*商品詳情頁*/
+/*餐廳和高爾夫*/
+.detail_w{width:950px;margin:0 auto;position:relative;padding-top:30px;}
+.detail_box1{width:950px;height:462px;background-color:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_img img{width:625px;height:345px;position:absolute;top:25px;left:25px;}
+.shop_name{width:200px;height:50px;position:absolute;bottom:26px;left:40px;font-size:20px;}
+.tag{width:150px;height:48px;position:absolute;bottom:23px;left:270px;font-size:20px;}
+.nts{width:150px;height:48px;position:absolute;bottom:11px;left:430px;font-size:26px;color:#C9A063;font-weight:bold;}
+.money{width:150px;height:48px;position:absolute;bottom:34px;left:490px;font-size:48px;color:#C9A063;font-weight:bold;}
+.up{width:150px;height:48px;position:absolute;bottom:11px;left:625px;font-size:26px;color:#C9A063;font-weight:bold;}
+.shop_txt{width:270px;height:345px;position:absolute;top:25px;left:665px;font-size:14px;color:#333;overflow:auto;}
+/*貴賓室*/
+.detail_box1_airport{width:950px;height:395px;background:#FFF;border-radius:5px;float:left;position:relative;margin-bottom:15px;}
+.shop_name_airport{width:200px;height:50px;position:absolute;top:25px;left:665px;font-size:20px;}
+.shop_txt_airport{width:270px;height:345px;position:absolute;top:70px;left:665px;font-size:14px;color:#333;overflow:auto;}
+/*棒球場*/
+.baseball_text {width: 200px;height: 48px;position: absolute;bottom: 11px;left: 445px;font-size: 21px;color: #C9A063;font-weight: bold;}
+/*click button*/
+.buy_bt a{width:230px;height:52px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:35px;font-size:22px;letter-spacing:5px;}
+.buy_bt a:hover{width:230px;height:52px;background-color:#7F4F21;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.buy_bt2{width:230px;height:52px;background-color:#888;display:block;border-radius:10px;text-align:center;line-height:52px;text-decoration:none;color:#FFF;font-weight:bold;position:absolute;bottom:25px;right:35px;font-size:22px;letter-spacing:5px;}
+
+.detail_box2{width:950px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:20px;}
+.detail_logo{width:190px;height:100px;border:solid #999 1px;}
+.detail_item{background-color:#999;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;}
+.detail_txt{font-size:14px;color:#333;line-height:22px;}
+.detail_txt ul{margin:0;padding-left:20px;}
+
+/*同意隱私權頁*/
+.accept_title{width:948px;text-align:center;height:40px;color:#81521b;font-size:18px;font-weight:bold;}
+.scroll{width:880px;height:450px;overflow:auto;margin:0 auto;color:#333;font-size:14px;line-height:22px;}
+.accept_box{width:948px;margin-bottom:25px;padding:35px 0px 35px 0px;background-color:#FFF;clear:both;border-radius:5px;}
+.accept_box2{width:100%;height:130px;}
+/*共用框框*/
+.share_box{width:948px;background-color:#FFF;clear:both;border-radius:5px;margin-bottom:25px;padding:35px 0px 25px 0px;position:relative;}
+.title_bg{width:213px;height:45px;background-image:url(../img/title_bg.png);position:absolute;top:15px;left:-5px;color:#333;text-align:center;line-height:45px;font-weight:bold;}
+.share_box3{width:90%;padding:25px 30px 25px 30px;margin:0 auto;color:#333;font-size:12px;line-height:24px;}
+.border1{border:2px solid #cfcfcf;}
+.border1 td{border:1px solid #cfcfcf;}
+.border1 tr:nth-child(even){background:#f0f0f0;}
+.border1 tr:nth-child(odd){background:#FFF;}
+
+/*共用字*/
+.txt1{font-size:14px;color:#FFF;}
+.txt1 a{font-size:14px;color:#C9A063;}
+.txt1 a:hover{color:#7F4F21;}
+.txt2{background-color:#C9A063;color:#FFF;font-size:15px;padding:2px 5px 2px 5px;line-height:32px;}
+.txt3{color:#81521b;font-size:14px;line-height:24px;}
+.txt3_color{color:#C00;font-size:14px;line-height:24px;}
+.txt4{width:24%;color:#81521b;font-size:14px;font-weight:bold;}
+/*共用小按鈕*/
+.accept_bt{width:280px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.cancel_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.cancel_bt2{width:280px;margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:space-between;align-content:center;}
+.change_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.check_bt{margin:0 auto;padding:20px 0;display:flex;flex-direction:row;justify-content:center;}
+.share_bt1{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt1:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35slinear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+.share_bt2{width:130px;height:40px;background-color:#C9A063;display:block;border-radius:10px;text-align:center;line-height:40px;text-decoration:none;color:#FFF;font-weight:bold;}
+.share_bt2:hover{width:130px;height:40px;background-color:#956134;
+transition:background-color.35s linear;
+-moz-transition:background-color.35s linear;/*Firefox4*/
+-webkit-transition:background-color.35s linear;/*SafariandChrome*/
+-o-transition:background-color.35s linear;/*Opera*/}
+
+/*活動說明*/
+.explain_item_w{text-align:center;margin:50px 0 30px 0;}
+/*活動小按鈕*/
+.explain_item_mark{background-color:#C9A063;margin:2px;padding:10px 5px;font-size:14px;color:#FFF;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_1 a{background-color:#FFF;margin:2px;padding:10px 5px;font-size:14px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_1 a:hover{background-color:#C9A063; color:#FFF;}
+.explain_item_2 a{background-color:#FFF;margin:2px;padding:10px 5px;font-size:14px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px#C9A063;}
+.explain_item_2 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_3 a{background-color:#FFF;margin:2px;padding:10px 5px;font-size:14px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_3 a:hover{background-color:#C9A063;color:#FFF;}
+.explain_item_4 a{background-color:#FFF;margin:2px;padding:10px 5px;font-size:14px;color:#C9A063;font-weight:bold;text-decoration:none;border-radius:5px;border:solid 1px #C9A063;}
+.explain_item_4 a:hover{background-color:#C9A063;color:#FFF;}
+
+.explain_box{width:95%;margin:40px auto;color:#333;font-size:14px;line-height:24px;/*IE7*/}
+.explain_title{background-color:#e9d9c0;color:#333;font-size:15px;font-weight:bold;height:50px;line-height:50px;padding-left:10px;clear:both;}
+.explain_title_2{display:none;}
+.explain_box h2{background-color:#e9d9c0;color:#333;font-size:15px;height:50px;line-height:50px;padding-left:10px;clear:both;}
+.explain_box p{padding-left:10px;clear:both;}
+.explain_box a{color:#C9A063;}
+.explain_box a:hover{color:#956134;}
+.explain_box ul{margin:0;padding-left:30px;clear:both;}
+.explain_box ol{margin:0;padding-left:30px;clear:both;}
+.explain_mark{color:#C00;}
+.explain_dinner{display:none;}
+
+.step_w{margin:0 auto; width:98%; margin-bottom:20px;/* IE 7*/ overflow:hidden;}
+.step{width:40%; height:180px; background-color:#FFF;border-radius:5px; float:left; padding:20px; border:solid 3px #c4a95e; margin:10px 18px 20px 18px; font-size:15px;}
+.step3_mark{color:#C9A063; font-size:16px; font-weight:bold;}
+.arrow{ width:5px; height:80px; float:left; line-height:125px; margin:10px 10px 0px 10px;}
+/*高爾夫*/
+.explain_golf{display: none;}
+.golf_td_1{width:45%;}
+.golf_td_2{width:30%;}
+.golf_td_3{width:25%;}
+.golf_btimes_2{display:none;}
+.booking_times_2{display:none;} 
+/*貴賓室*/
+.explain_airport{display: none;}
+.airport_td_1{width:14%;}
+.airport_td_2{width:21%;}
+.airport_td_3{width:42%;}
+.airport_td_4{width:23%;}
+/*棒球場*/
+.step_w_baseball{margin:0 auto;width:98%;margin-bottom:20px;/* IE 7*/ display:flex;flex-direction:column;align-items:center;}
+.step_baseball{width:80%;background-color:#FFF;border-radius:5px;float:left;padding:20px;border:solid 3px #c4a95e;margin:10px 18px 20px 18px;font-size:15px;}
+/*活動小按鈕進入購買*/
+.btn_explain{margin:30px auto 10px auto;text-align:center;}
+.btn_ex_booking{padding:15px 60px;background:linear-gradient(-120deg,#AA8E59,#FCF0BE,#765E42);text-decoration:none;text-align:center;line-height:40px;color:#40220F;font-weight:bold;border-radius:10px;}
+.btn_ex_booking:hover{background:#7F3C20;color:white;}
+.btn_ex_booking:active{background:#7F3C20;color:white;}
+
+/*隱私權政策條款*/
+.privacy_title_bg{width:490px;height:50px;margin:-10px auto 2px auto;color:#333;text-align:center;line-height:55px;font-weight:bold;box-sizing:border-box;background:linear-gradient(180deg,#E2E2E2,#F5F5F5,#F5F5F5,#E2E2E2,#D6D6D6);border-radius:10px;box-shadow:0px 5px 5px 0px rgba(0,0,0,.2);}
+.privacy{width:880px;margin:0 auto;padding-top:5px;color:#333;font-size:14px;line-height:22px;}
+
+/*活動說明頁*/
+#footer_w{
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 10px;
+    background: #271C18;
+    background-size: cover;
+    background-position: center;
+    border-top:solid 5px white;
+    border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-    slice:30%;clear:both;
+}
+/* #footer_w{position:relative;
+    background:linear-gradient(-90deg,#190A04,#2A160B,#422513);
+    border-top:solid 5px white;
+    border-image:linear-gradient(#765E42,#FCF0BE,#AA8E59)300;border-image-slice:30%;clear:both;} */
+#footer{margin:0 auto;max-width:950px;position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;}
+.footer_u11{width:210px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u11 .footer_bt1{font-size:16px;color:#EDD68B;}
+.footer_u11 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u11 li{padding-top:10px;font-size:14px;line-height:21px;}
+.footer_u11 li a{text-decoration:none;color:#ffffff;}
+.footer_u11 li a{text-decoration:none;color:#ffffff;}
+.footer_u11 li a:hover{background:#C9A063;}
+.footer_u11 li a:active{background:#C9A063}
+
+.footer_u12{width:170px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u12 .footer_bt2{font-size:16px;color:#EDD68B;}
+.footer_u12 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u12 li{padding-top:10px;font-size:14px;line-height:21px;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a{text-decoration:none;color:#ffffff;}
+.footer_u12 li a:hover{background:#C9A063;}
+.footer_u12 li a:active{background:#C9A063;}
+
+.footer_u13{width:180px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u13 .footer_bt3{font-size:16px;color:#EDD68B;}
+.footer_u13 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u13 li{padding-top:10px;font-size:14px;line-height:21px;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a{text-decoration:none;color:#ffffff;}
+.footer_u13 li a:hover{background:#C9A063;}
+.footer_u13 li a:active{background:#C9A063;}
+
+.footer_u14{width:180px;padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u14 .footer_bt4{font-size:16px;color:#EDD68B;}
+.footer_u14 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u14 li{padding-top:10px;font-size:14px;line-height:21px;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a{text-decoration:none;color:#ffffff;}
+.footer_u14 li a:hover{background:#C9A063;}
+.footer_u14 li a:active{background:#C9A063;}
+
+.footer_u15{padding:0px;list-style:none;box-sizing:border-box;}
+.footer_u15 .footer_bt5{width:100px;font-size:16px;color:#EDD68B;}
+.footer_u15 hr{width:100%;display:block;float:left; margin:10px 0;border-radius:5px;}
+.footer_u15 li{padding-top:10px;font-size:14px;line-height:21px;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a{text-decoration:none;color:#ffffff;}
+.footer_u15 li a:hover{background:#EDD68B;}
+.footer_u15 li a:active{color:#EDD68B;}
+
+#footer .privacy_icon1{position:absolute;top:162px;right:-13px;}
+
+.footer_2{width:100%;margin:0 auto;padding:15px 0px;font-size:12px;line-height:20px;text-align:center;color:#ffffff;box-sizing:border-box;}
+
+#footer_w2{background: #271C18;font-size:14px;position:relative;}
+#footer_w2 .footer2{max-width:930px;color:#FFF;line-height:28px;margin:0 auto;padding:20px 0;position:relative;}
+#footer_w2 .footer2 a{color:#FFF;text-decoration:none;line-height:28px;}
+#footer_w2 .footer2 a:hover{color:#CCC;text-decoration:none;}
+.footer2 .privacy_icon{position:absolute;top:5px;right:70px;}
+}

@@ -8,6 +8,37 @@ function injectScript(file_path, tag) {
 }
 injectScript(chrome.runtime.getURL('content.js'), 'body');
 
+//如何得知 全打勾
+function check_all_checkbox(){
+    // Select all checkboxes in the document
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checkboxesArray = Array.from(checkboxes);
+
+    checkboxesArray.forEach((checkbox, index) => {
+        checkbox.checked = true;
+    });
+}
+
+//選填日期
+function check_date(date){
+    // Select all checkboxes in the document
+    const radio_btns = document.querySelectorAll('input[type="radio"]');
+    const radio_btnsArray = Array.from(radio_btns);
+    try{
+        radio_btnsArray[date].checked = true;
+    }catch(e){
+        radio_btnsArray[0].checked = true;
+    }
+}
+
+function check_if_robot_check_done(){
+    while(true){
+        if (window.check_card_result){
+            break;
+        }
+    }
+}
+
 chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (result)=>{
     const { date, name, phone, card, email, auto } = result;
     //同意
@@ -19,70 +50,43 @@ chrome.storage.local.get(["date", "name", "phone", "card", "email", "auto"], (re
         document.getElementById("accept_check").checked = true;
     }
     //如何得知
-    if(document.getElementById("how2know1")){
-        document.getElementById("how2know1").click();
-    }
-    //姓名
-    if(document.getElementById("user_name")){
-        document.getElementById("user_name").value = name;
-    }
-    //電話
-    if(document.getElementById("user_phone")){
-        document.getElementById("user_phone").value = phone;
-    }
-    //信用卡號
-    if(document.getElementById("card1")){
-        document.getElementById("card1").focus()
-        document.getElementById("card1").value = card;
-    }
-    //Email
-    if(document.getElementById("user_email")){
-        document.getElementById("user_email").focus()
-        document.getElementById("user_email").value = email;
-    }
-    //輸入驗證碼
-    if (document.getElementById("checkCode")){
-        let captcha = document.getElementById("checkCode").innerHTML;
-        if (document.getElementById("captcha_form")){
-            document.getElementById("captcha_form").value = captcha;
+    check_all_checkbox();
+    var input_text_list = document.querySelectorAll('input[type="text"]');
+    for (let i = 0; i < input_text_list.length; i++){
+        console.log(i == 0)
+        switch (Number(i)){
+            case 0:
+                input_text_list[i].value = name;
+                console.log(input_text_list[i].value)
+                break;
+            case 1:
+                input_text_list[i].value = phone;
+                break;
+            case 2:
+                input_text_list[i].value = card;
+                input_text_list[i].click();
+                break;
+            case 3:
+                input_text_list[i].value = email;
+                break;
+            default:
+                break;
         }
+        
     }
     try{
         // const day = new Date(date).getDay();
         /* day => 0:星期一 1:星期二 2:星期三 3:星期四 4:星期五 */
-        document.getElementsByName('ord_date')[date].checked = true
-        //晚餐
-        document.getElementsById('order_date').selectedIndex = date + 1 ;
+        check_date(date)
     } catch(e) {
         var error = "選擇日期出現了問題"
         console.log(error)
-        document.getElementsByName('ord_date')[0].checked = true
-        document.getElementsById('order_date').selectedIndex = 1 ;
     } finally {
         //確認是否開啟auto模式
         if (auto){
-            //處理 1. 星巴克登陸頁面  2. 星巴克(隱私權條款)
-            if (document.querySelectorAll('a[onclick="return isChkbox();"]').length > 0){
-                document.querySelectorAll('a[onclick="return isChkbox();"]')[0].click(); //送出按鈕
-            }
-            if (document.querySelectorAll('button[onclick="shouldConfirm =false;return chk_value();"]').length > 0){
-                document.querySelectorAll('button[onclick="shouldConfirm =false;return chk_value();"]')[0].click(); //送出按鈕
-            }
-            //下午茶(隱私條款)
-            if (document.querySelector("#form1 > div.visible-xs > a:nth-child(2)")){
-                document.querySelector("#form1 > div.visible-xs > a:nth-child(2)").click()//button最後一個按鈕:送出
-            }
-            //下午茶
-            if (document.querySelectorAll("button[type=submit]").length > 0){
-                let order = function(){
-                    document.querySelector("#form1 > div > div:nth-child(4) > div > div.visible-xs > button > img").click();
-                }
-                setTimeout(order, 800)
-            }
-            //晚餐(隱私權/訂位)
-            if(document.querySelector('.share_bt1')){
-                document.querySelector('.share_bt1').click();
-            }
+            setTimeout(() => {
+                document.querySelector('#form1 > div > div:nth-child(4) > div.FORM-confirm.btn-a > button').click();
+            }, 4200);
         }
     }
 

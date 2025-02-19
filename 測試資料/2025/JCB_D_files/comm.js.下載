@@ -1,0 +1,1008 @@
+//-----------yui show ----------------------------
+var oWaitPanel;
+var onpp = function(w,h,sUrl,sHead,sDelay) {
+		oWaitPanel = new YAHOO.widget.Panel("edmd",{
+		postmethod:'form',
+		fixedcenter:true,
+		width: w,
+		height: h,
+		underlay:"matte", //shadow, matte,none
+		close:true,
+		visible:true,
+		draggable:false,
+		modal:true,
+		effect:{
+		    effect:YAHOO.widget.ContainerEffect.FADE, 
+			duration:0.2
+		}
+	});	
+	
+	
+	var callback = 
+	{
+    	success: function(o) 
+		{
+	  		//alert(o.responseText);						
+			document.getElementById('showpp').innerHTML = o.responseText;
+    	},
+    	failure: function(o) 
+		{
+      		alert("錯誤：無法取得回應");
+    	}
+  	};
+	
+	oWaitPanel.setHeader(sHead);
+	oWaitPanel.setBody("<div id='showpp'></div>");
+	
+	//oWaitPanel.cfg.setProperty("underlay","matte"); 
+	oWaitPanel.render(document.body);
+    oWaitPanel.show();
+	
+	if(sDelay)
+	setTimeout(function(){oWaitPanel.hide();},3000);
+	
+	YAHOO.util.Connect.asyncRequest('GET',sUrl, callback, null);
+};
+
+
+//-----------btn img----------------------------
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+//-------------------------js固定文字清除------------------------------------------
+function foot_g(){
+	var c=document.getElementById('g_name').value;
+	if(c == "關鍵字、店名或輸入地址"){
+		document.getElementById('g_name').value='';
+		}
+	}
+
+//輸入判斷式
+
+function checklen(fmobj,fmobjmsg,lenmin,lenmax)
+{ 
+if(document.getElementById(fmobj).value!="")
+{
+ 	if ((document.getElementById(fmobj).value.length < lenmin)) 
+ 	{ 
+    	alert(fmobjmsg+"需超過"+lenmin+"個字"); 
+    	document.getElementById(fmobj).focus(); 
+   	 	return false; 
+ 	} 
+	
+ 	if ((document.getElementById(fmobj).value.length > lenmax)) 
+ 	{ 
+    	alert(fmobjmsg+"不能超過"+lenmin+"個字"); 
+    	document.getElementById(fmobj).focus(); 
+   	 	return false; 
+ 	} 
+}
+ 
+ return true; 
+}
+
+
+
+function checklens(fmobj,fmobjmsg,lens)
+{ 
+ 
+ 	if ((document.getElementById(fmobj).value.length != lens)) 
+ 	{ 
+    	alert(fmobjmsg+"需為"+lens+"個字"); 
+    	document.getElementById(fmobj).focus(); 
+   	 	return false; 
+ 	} 
+
+ return true; 
+}
+
+
+function checknum(fmobj,fmobjmsg)
+{ 
+if(document.getElementById(fmobj).value!="")
+{
+re = /^[0-9]*$/; 
+ if (!re.test(document.getElementById(fmobj).value)) 
+ { 
+    alert(fmobjmsg +"只允許輸入數字"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ }
+ } 
+ return true; 
+} 
+
+
+function checknotnum(fmobj,fmobjmsg)
+{ 
+	if(document.getElementById(fmobj).value!="")
+	{
+		re = /^[0-9]*$/; 
+		 if(re.test(document.getElementById(fmobj).value)) 
+		 { 
+			alert(fmobjmsg +"不能為數字"); 
+			document.getElementById(fmobj).focus(); 
+			return false; 
+		 }
+	 } 
+	 return true; 
+} 
+
+
+function checkmobile(fmobj)
+{ 
+ if(document.getElementById(fmobj).value!="")
+ {
+ re = /^09\d{8}$/; 
+ if (!re.test(document.getElementById(fmobj).value)) 
+ { 
+    alert("手機格式有問題"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ } 
+ }
+ return true; 
+} 
+
+
+function checkemail(fmobj)
+{ 
+ if(document.getElementById(fmobj).value!="")
+ {
+ 
+ re = /^[^\s]+@[^\s]+\.[^\s]{2,3}$/; 
+ if (!re.test(document.getElementById(fmobj).value)) 
+ { 
+    alert("email格式有問題"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ } 
+ }
+ return true; 
+} 
+
+
+function checkempty(fmobj,fmobjmsg)
+{ 
+ //alert(fmobj);
+ if ((document.getElementById(fmobj).value=="")) 
+ { 
+    alert(fmobjmsg + "為必輸入欄位"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ } 
+ return true; 
+} 
+
+
+function checkcheck(fmobj,fmobjmsg)
+{ 
+ 
+
+ if (!document.getElementById(fmobj).checked) 
+ { 
+    alert(fmobjmsg + "需確認"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ } 
+ return true; 
+}
+
+
+function checkname(fmobj)
+{ 
+if(document.getElementById(fmobj).value!="")
+{
+/*
+	var subStr = "";
+ 	var str = document.getElementById(fmobj).value;
+ 
+ 	for (i=0,n=str.length;i<n;i++)
+	{
+      	subStr = str.charCodeAt(i);
+      	if ((subStr < 256))
+		{
+         	alert("姓名格式不符合"); 
+    		document.getElementById(fmobj).focus();
+			return false;
+      	}
+   	}
+	*/
+
+	if(!checklen(fmobj,"姓名",2,20)) return false;
+
+}
+ return true; 
+}
+ 
+function checktel(fmobj,fmobjmsg)
+{ 
+
+if(document.getElementById(fmobj).value!="")
+{
+//re = /(^([0][1-9]{2,3}[-])?\d{3,8}(-\d{1,6})?$)|(^\([0][1-9]{2,3}\)\d{3,8}(\(\d{1,6}\))?$)|(^\d{3,8}$)/; 
+//re = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,13})(-(\d{3,}))?$/;
+//re=/^[+]{0,1}(d){1,3}[ ]?([-]?((d)|[ ]){1,12})+$/;
+//re=/^(\((0([2-9]){1,4})\))?(\s)?(([2-9]){1}[0-9]{5,7}){1}(\s)?(\#(\s)?[0-9]{1,8})?$/;
+ /*
+  re=/^(\((0([2-9]){1,4})\))?(\s)?(([2-9]){1}[0-9]{5,7}){1}(\s)?(\#(\s)?[0-9]{1,8})?$/;
+ 
+ if (!re.test(document.getElementById(fmobj).value)) 
+ { 
+    alert(fmobjmsg+"號碼格式有問題 範例 (02)22221234"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ } 
+   */
+}
+ return true; 
+} 
+
+function checkid(fmobj)
+{ 
+{
+	re = /^\w{1,20}$/; 
+ 	if (!re.test(document.getElementById(fmobj).value)) 
+ 	{ 
+    	alert("帳號格式有問題,只能由英文數字及底線"); 
+    	document.getElementById(fmobj).focus(); 
+    	return false; 
+ 	}
+ 
+	if(!checklen(fmobj,"帳號",6,30)) return false;
+ 
+}
+ return true; 
+} 
+
+
+
+function checkpass(fmobj)
+{ 
+ 
+ 
+ 
+ 	var subStr = "";
+ 	var str = document.getElementById(fmobj).value;
+  var ns = 0;
+  var ni = 0;
+ 	for (i=0,n=str.length;i<n;i++)
+	{
+      	subStr = str.charCodeAt(i);
+      	if ((subStr > 256))
+		{
+         	alert("密碼格式不符合,不能使用中文字"); 
+    		document.getElementById(fmobj).focus();
+			return false;
+      	}
+     
+     if(subStr>=48 && subStr<=57)
+       ni = 1;
+     else
+       ns = 1;
+      	
+  	}
+  	
+ 
+/* if(ns == 0 || ni == 0)
+ {
+    alert("密碼要有 數字 及 英文或符號 之組合"); 
+    document.getElementById(fmobj).focus();
+		return false;
+ }
+*/ 
+ 	if(!checklen(fmobj,"密碼",6,30)) return false;
+ 
+ 
+ return true; 
+}
+
+function checknum0(fmobj,fmobjmsg)
+{ 
+
+ 	if (document.getElementById(fmobj).value == 0) 
+ 	{ 
+    	alert(fmobjmsg+"不能為0"); 
+    	document.getElementById(fmobj).focus(); 
+    	return false; 
+ 	}
+
+ 	return true; 
+} 
+
+
+function checkIDD(fmobj)
+{
+	
+  idStr = document.getElementById(fmobj).value;
+
+
+  var letters = new Array('A', 'B', 'C', 'D',
+      'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
+      'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+      'X', 'Y', 'W', 'Z', 'I', 'O');
+
+  var multiply = new Array(1, 9, 8, 7, 6, 5,
+                           4, 3, 2, 1);
+  var nums = new Array(2);
+  var firstChar;
+  var firstNum;
+  var lastNum;
+  var total = 0;
+
+  var regExpID=/^[a-z](1|2)\d{8}$/i;
+
+  if (idStr.search(regExpID)==-1) 
+  {
+    	alert("身份證字號有問題"); 
+    	document.getElementById(fmobj).focus();
+   		return false;
+  }
+  else 
+  {
+
+	firstChar = idStr.charAt(0).toUpperCase();
+	lastNum = idStr.charAt(9);
+  }
+
+  for (var i=0; i<26; i++) {
+	if (firstChar == letters[i]) {
+	  firstNum = i + 10;
+	  nums[0] = Math.floor(firstNum / 10);
+	  nums[1] = firstNum - (nums[0] * 10);
+	  break;
+	}
+  }
+
+  for(var i=0; i<multiply.length; i++){
+    if (i<2) {
+      total += nums[i] * multiply[i];
+    } else {
+      total += parseInt(idStr.charAt(i-1)) *
+               multiply[i];
+    }
+  }
+
+  if ((10 - (total % 10))!= lastNum) 
+  {
+	      	//alert("身份証字號有問題"); 
+    		//document.getElementById(fmobj).focus();
+			//return false;
+  }
+  return true;
+}
+
+
+function checkdate(fmobj)
+{ 
+ if(document.getElementById(fmobj).value!="")
+ {
+ 
+ re = /^(\d{4})([\/,-])(\d{1,2})\2(\d{1,2})$/; 
+ if (!re.test(document.getElementById(fmobj).value)) 
+ { 
+    alert("日期格式有問題!範例格式2011-12-12,您也可選擇清除不填"); 
+    document.getElementById(fmobj).focus(); 
+    return false; 
+ } 
+ }
+ return true; 
+}  
+
+function checkCompanyNo(fmobj)
+{
+	var comNo = document.getElementById(fmobj).value;
+	
+	re = /^[0-9]*$/; 
+	if (!re.test(document.getElementById(fmobj).value)) 
+	{ 
+		alert('統一編號需為八位數字');
+		document.getElementById(fmobj).focus(); 
+		return false; 
+	}
+
+	var res = new Array(8);
+	var key = "12121241";
+	var isModeTwo = false; //第七個數是否為七
+	var result = 0;
+
+	if(comNo.length != 8)
+	{
+		alert('統一編號不可少於或多於8碼！');
+		document.getElementById(fmobj).focus(); 
+		return false ;
+	}
+
+	for(var i=0; i<8; i++)
+	{
+		var tmp = comNo.charAt(i) * key.charAt(i);
+		//取出十位數和個位數相加
+		res[i] = Math.floor(tmp/10) + (tmp%10); 
+		if(i == 6 && comNo.charAt(i) == 7)
+		isModeTwo = true;
+	}    
+
+	for(var s=0; s<8; s++)
+	result += res[s];
+
+	if(isModeTwo)
+	{   
+		//如果第七位數為7  
+		if((result % 10) != 0 && ((result + 1) % 10) != 0)
+		{
+			alert('統一編號編碼不正確，請重新輸入！');
+			document.getElementById(fmobj).focus(); 
+			return false;
+		}
+	}
+	else
+	{
+		if((result % 10) != 0)
+		{
+			alert('統一編號編碼不正確，請重新輸入！');
+			document.getElementById(fmobj).focus(); 
+			return false ;
+		}    
+	}
+	return true;
+}
+
+
+//跳出視窗
+/*function dialog_set(url,title,w,h,turn)
+{
+	if(w != '')
+	{
+		f_w = w;
+	}
+	else
+	{
+		f_w = '100%';
+	}
+	$(document).ready(function() {
+		$.fancybox.open(
+		{
+			padding : 0,
+			href:url,
+			type: 'iframe',
+			maxWidth:f_w,
+			autoCenter:true,
+			fitToView: true,
+			fixed: false,
+			iframe: {
+				preload: false,
+				'beforeShow': function () {
+				this.width = ($('.fancybox-iframe').contents().find('html').width());
+				this.height = ($('.fancybox-iframe').contents().find('html').height());
+				}
+			},
+
+			'beforeClose': function () {
+				if(turn == 'back')
+				{
+					parent.window.location = document.referrer;
+				}
+			}
+			
+		});
+	});
+}
+*/
+//跳出視窗
+/*function dialog_set(url,title,w,h)
+{
+	$(document).ready(function() {
+	if(h == 0)
+	{
+		h_max = return_max_height();					
+	}
+	else
+	{
+		h_max = h;	
+	}
+	$(".ui-dialog-titlebar").show();						   
+	$('body').append('<div id="category_edit_dialog" style="display:none;"></div>');
+	$("#category_edit_dialog").dialog({
+		modal: true,
+		hide: 'slide',
+		draggable: true,
+		autoOpen: true,
+		title: title,
+		width: w,
+		height: h_max,
+		position: {my: "center", at: "center", of: window }
+	});
+	$('.ui-widget-overlay').click(function() { dialog_close(); });	
+	$('#category_edit_dialog').html('<iframe src="' + url + '" frameborder="0" height="100%" width="100%" id="dialogFrame" scrolling="auto"></iframe>');
+	});
+}
+*///關閉視窗
+/*function close_dialog()
+{
+	window.parent.dialog_close();
+}*/
+
+//跳出視窗
+function dialog_set(url,title,w,h,turn)
+{
+	if(w != '')
+	{
+		f_w = w;
+	}
+	else
+	{
+		f_w = '80%';
+	}
+	$(document).ready(function() {
+		$.fancybox.open({
+		padding : 0,
+		href:url,
+		type: 'iframe',
+		maxWidth:f_w,
+		fitToView: true, // 強制符合螢幕尺寸
+		'beforeClose': function () {
+			if(turn == 'back')
+			{
+				parent.window.location = document.referrer;
+			}
+		},
+		'beforeShow': function () {
+			this.width = ($('.fancybox-iframe').contents().find('html').width());
+			this.height = ($('.fancybox-iframe').contents().find('html').height());
+		}
+		});
+	});
+}
+
+
+//關閉視窗
+function close_dialog()
+{
+	parent.jQuery.fancybox.close();
+}
+//popup location
+function href_dialog(url)
+{
+	window.parent.location.href=url;
+}
+
+/**
+ * 視窗遮罩訊息
+ *
+ * @message = 訊息內容
+ * @title	= 訊息標題
+ * @mask	= 是否開啟全視窗遮罩
+ */
+function dialog_msg(message,title,mask,esc)
+{
+	if(esc == '')
+	{
+		esc = false;
+	}
+	else
+	{
+		esc = true;
+	}
+
+	$(document).ready(function() {		
+		$('body').append('<div id="dialog-msg"></div>');
+		
+        $("#dialog-msg").dialog({
+		   title        : title,	
+		   modal		: mask,				
+		   resizable    : false,						
+		   closeOnEscape: esc,
+		   open: function(event, ui) 
+		   { 
+				if(esc == false)
+				{
+					$(".ui-dialog-titlebar-close").hide(); 
+				}
+		   }
+		});
+		if(title != '')
+		{
+			$(".ui-dialog-titlebar").show();
+		}
+		else
+		{
+			$(".ui-dialog-titlebar").hide();
+		}
+		$('.ui-widget-overlay').click(function() { dialog_close(); });
+		$('#dialog-msg').html('<div style="text-align:left; font-size:15px;line-height:20px;">'+message+'</div>');
+	});
+		
+}
+
+/**
+ * 關閉視窗遮罩訊息
+ */
+function close_msg_dialog()
+{
+	$("#dialog-msg").dialog("close");
+}
+
+
+function dialog_close()
+{
+	$("#category_edit_dialog").dialog("close");
+}
+
+
+function return_max_height()
+{
+	var maxHeight = screen.availHeight;
+	return maxHeight-250;
+}
+
+
+//from to 日曆
+function get_datepicker(from,to)
+{
+	$(function() {
+		var dates = $( "#"+from+", #"+to ).datepicker({
+			defaultDate: "+0w",
+			changeMonth: true,
+			numberOfMonths: 1,
+			onSelect: function( selectedDate ) {
+				var option = this.id == from ? "minDate" : "maxDate",
+					instance = $( this ).data( "datepicker" ),
+					date = $.datepicker.parseDate(
+						instance.settings.dateFormat ||
+						$.datepicker._defaults.dateFormat,
+						selectedDate, instance.settings );
+				dates.not( this ).datepicker( "option", option, date );
+				dates.datepicker( "option", "dateFormat", "yy-mm-dd");
+			}
+		});
+	});
+}
+
+
+//判斷是不是數字(可判斷浮點數)
+function is_number(obj)
+{
+	var number = document.getElementById(obj).value;
+		
+	rep=new String(number);
+	
+	pattern=/^[\.0-9]+$/;
+	
+	if(rep.length>0 && rep.match(pattern) && parseFloat(number)>=0 && rep.length<=40) 
+	{
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function is_checkbox_checked(name,str) 
+{ 
+	var chks = document.getElementsByName(name);  //here comp_stat[] is the name of the textbox 
+	for (var i = 0; i < chks.length; i++) 
+	{         
+		if (chks[i].checked==true) 
+		{ 
+			return true;             
+		} 
+	} 
+	alert('請選擇'+str);
+	chks[0].focus(); 
+	return false;
+} 
+
+function startApp()
+{
+/*	try {
+		document.location = appurl;
+		timeout = setTimeout(function(){
+			document.location.href = appstore;
+		}, 3000);
+		window.addEventListener('pagehide', preventPopup);
+	}catch(e){
+		document.location.href = appstore;
+	}
+*/	
+	
+	
+  var download_link, iframe, loadDateTime, redirected, scheme_link, t, scheme_link_ios, download_link_ios;
+  scheme_link = 'http://zxing.appspot.com/scan';
+  download_link = 'https://play.google.com/store/apps/details?id=com.google.zxing.client.android&hl=zh_TW';
+  scheme_link_ios = 'zxing://scan/';
+  download_link_ios = 'https://itunes.apple.com/tw/app/quickmark-qrcode-sao-miao-qi/id384883554?l=zh';
+  redirected = false;
+
+  if (navigator.userAgent.match(/FBIOS/i)) {
+    document.writeln("請按上或下方的箭頭，選擇「在 Safari 開啟」以繼續進行活動。");
+    return;
+  }
+
+  if (navigator.userAgent.match(/Windows Phone/i)) {
+    loadDateTime = new Date();
+    setTimeout(function() {
+      var timeOutDateTime;
+      timeOutDateTime = new Date();
+      if (timeOutDateTime - loadDateTime < 5000) {
+        window.location = download_link;
+      }
+    }, 1000);
+    window.location = scheme_link;
+  } else if (navigator.userAgent.match(/Android/i)) {
+    if (navigator.userAgent.match(/Chrome/i)) {
+      if (+navigator.userAgent.match(/(chrome(?=\/))\/?\s*(\d+)/i)[2] >= 41) {
+        window.location = scheme_link;
+        setTimeout(function() {
+          if (!document.webkitHidden && !redirected) {
+            redirected = true;
+            window.location = download_link;
+          }
+        }, 1000);
+      } else {
+        window.location = scheme_link;
+        alert("若您看到錯誤畫面，請先安裝 某某 App 喔！");
+      }
+    } else {
+      iframe = document.createElement("iframe");
+      iframe.style.border = "none";
+      iframe.style.width = "1px";
+      iframe.style.height = "1px";
+      t = setTimeout(function() {
+        window.location = download_link;
+      }, 1000);
+      iframe.onload = function() {
+        clearTimeout(t);
+      };
+      iframe.src = scheme_link;
+      document.body.appendChild(iframe);
+    }
+  } else if (navigator.userAgent.match(/(iPhone|iPad|iPod)/i)) {
+    setTimeout(function() {
+      if (!document.webkitHidden) {
+        window.location = download_link_ios;
+      }
+    }, 25);
+    window.location = scheme_link_ios;
+  } else {
+    loadDateTime = new Date();
+    setTimeout(function() {
+      var timeOutDateTime;
+      timeOutDateTime = new Date();
+      if (timeOutDateTime - loadDateTime < 5000) {
+        window.location = download_link;
+      }
+    }, 1000);
+    window.location = scheme_link;
+  }
+
+}
+
+function esun_api(type,system,huid,txtoken,amount)
+{
+	switch(type)
+	{
+		case 'member':
+			var message = '{"version":"1.0","code":"01","callbackFunctionId":"esun_api_ajax_member"}'
+		break;
+
+		case 'logout':
+
+			var message = '{"version":"1.0","huid":"' + huid + '","code":"02"}'
+			
+		break;
+
+		case 'lkey':
+
+			var message = '{"version":"1.0","huid":"' + huid + '","code":"11","callbackFunctionId":"esun_api_ajax_lkey",txToken:"' + txtoken + '",amount:"' + amount + '"}'
+		
+		break;
+
+		case 'token':
+
+			var message = '{"version":"1.0","huid":"' + huid + '","code":"12","callbackFunctionId":"esun_api_ajax_token"}'
+			
+		break;
+
+		case 'bonus':
+
+			var message = '{"version":"1.0","huid":"' + huid + '","code":"13","callbackFunctionId":"esun_api_ajax_bonus"}'
+			
+		break;
+
+		case 'agree_time':
+
+			var message = '{"version":"1.0","huid":"' + huid + '","code":"31","callbackFunctionId":"esun_api_ajax_agree_time"}'
+			
+		break;
+
+		default:
+	}
+	
+	if (system == 'ios') 
+	{ 
+		window.webkit.messageHandlers.ESWalletBridge.postMessage(message);
+	} 
+	else if (system == 'android')
+	{
+		ESWalletBridge.sendMessage(message);
+	}
+	else
+	{
+		alert('來源有誤');
+		window.location.href = 'index.php';
+		return false;
+	}
+
+}
+
+function esun_api_ajax_member(message) 
+{
+
+	var obj = JSON.parse(message);
+	var huid = obj.huid;
+	//alert(huid);
+	if(huid != '')
+	{
+		$.ajax({
+			url: 'https://esun.exebank.com/api/api_esun.php',
+			data: {
+					type: 'member',
+					huid:huid,
+					},
+			type: "POST",                
+			success: function(msg)
+			{
+				//$('.answer').html(msg);
+				if(msg.status == 'error')
+				{
+					alert('來源有誤');
+					window.location.href = 'index.php';
+					return false;
+				}
+				else if(msg.status == 'ok')
+				{
+					return true;
+				}
+				else
+				{
+
+				}
+			}
+		});
+	}
+	else
+	{
+		alert('來源有誤');
+		window.location.href = 'index.php';
+		return false;
+	}
+
+}
+
+function esun_api_ajax_lkey(message) 
+{
+	var obj = JSON.parse(message);
+	var huid = obj.huid;
+	var RC = obj.RC;
+	var iData = obj.iData;
+	var lkey = iData.lkey;
+	var BPF = iData.BPF;
+
+	$.ajax({
+		url: '../api/api_esun.php',
+		data: {
+				type:'lkey',
+				huid:huid,
+				lkey:lkey,
+				bpf:BPF,
+				},
+		type: "POST",                
+		success: function(msg)
+		{
+			//$('.answer').html(msg);
+		}
+	});
+
+	
+
+}
+
+function esun_api_ajax_token(message) 
+{
+	var obj = JSON.parse(message);
+	var huid = obj.huid;
+	var RC = obj.RC;
+	var token = obj.token;
+	//alert(obj.huid);
+
+	$.ajax({
+		url: '../api/api_esun.php',
+		data: {
+				type:'token',
+				huid:huid,
+				rc:RC,
+				token:token,
+				},
+		type: "POST",                
+		success: function(msg)
+		{
+			//$('.answer').html(msg);
+		}
+	});
+
+	
+
+}
+
+function esun_api_ajax_bonus(message) 
+{
+	var obj = JSON.parse(message);
+	var huid = obj.huid;
+	var RC = obj.RC;
+	var bounsPoint = obj.bounsPoint;
+	//alert(obj.huid);
+
+	$.ajax({
+		url: '../api/api_esun.php',
+		data: {
+				type:'bonus',
+				huid:huid,
+				rc:RC,
+				bounspoint:bounsPoint,
+				},
+		type: "POST",                
+		success: function(msg)
+		{
+			//$('.answer').html(msg);
+		}
+	});
+
+	
+
+}
+
+function esun_api_ajax_agree_time(message) 
+{
+	var obj = JSON.parse(message);
+	var huid = obj.huid;
+	var RC = obj.RC;
+	var agreeDatetime = obj.agreeDatetime;
+	//alert(obj.huid);
+
+	$.ajax({
+		url: '../api/api_esun.php',
+		data: {
+				type:'agree_time',
+				huid:huid,
+				rc:RC,
+				agree_date_time:agreeDatetime,
+				},
+		type: "POST",                
+		success: function(msg)
+		{
+			//$('.answer').html(msg);
+		}
+	});
+
+	
+
+}
